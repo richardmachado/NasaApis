@@ -5,6 +5,7 @@ import axios from "axios";
 
 
 
+
 function NEO() {
   const [neo, setNeo] = useState([]);
   
@@ -12,10 +13,10 @@ function NEO() {
   useEffect(() => {
     axios
 
-    .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
+      .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
       .then(response => {
-        console.log(response.data.near_earth_objects['2019-12-16']);
-        setNeo(response.data.near_earth_objects['2019-12-16']);
+        // console.log(response.data.near_earth_objects['{Date}']);
+        setNeo(response.data.near_earth_objects['2019-12-17']);
       })
       .catch(err => {
         console.log(err);
