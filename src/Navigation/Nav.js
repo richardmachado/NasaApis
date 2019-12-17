@@ -22,7 +22,7 @@ function Navi () {
     return (
       <div>
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="/">NASA API's</Navbar.Brand>
+  <NavLink tag={Link} to="/">NASA API's</NavLink>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
