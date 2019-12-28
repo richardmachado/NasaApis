@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios"
 
-import PhotoCard from "./PhotoCard"
+import PhotoCard from "../PhotoCard"
 import styled from 'styled-components';
 
 // import DateMod from './DatePicker';

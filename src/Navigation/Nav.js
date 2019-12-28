@@ -12,9 +12,12 @@ import {
 
     
 import Home from '../Home';
-import Photo from '../POTD';
-import EPIC from '../EPIC';
-import NEO from '../NEO';
+import Photo from '../API/POTD';
+import EPIC from '../API/EPIC';
+import NEO from '../API/NEO';
+import Curiosity from '../Rovers/Curiosity';
+import Opportunity from '../Rovers/Opportunity'
+import Spirit from '../Rovers/Spirit'
 
 function Navi () {
 
@@ -29,6 +32,9 @@ function Navi () {
       <NavLink tag={Link} to="/POTD">Photo of the Day</NavLink>
       <NavLink tag={Link} to="/EPIC">EPIC API</NavLink>
       <NavLink tag={Link} to="/NEO">Near Earth Objects</NavLink>
+      <NavLink tag={Link} to="/Curiosity">Curiosity</NavLink>
+      <NavLink tag={Link} to="/Opportunity">Opportunity</NavLink>
+      <NavLink tag={Link} to="/Spirit">Spirit</NavLink>
     </Nav>
     <Nav>
       <Nav.Link href="#deets">Richard Machado</Nav.Link>
@@ -48,12 +54,26 @@ function Navi () {
      </Route>
      <Route path="/EPIC">
      <EPIC />
-
-     </Route>
+    </Route>
+     
      <Route path="/NEO">
      <NEO />
-     
      </Route>
+     
+    
+     <Route path="/Curiosity">
+     <Curiosity />
+     </Route>
+
+     <Route path="/Opportunity">
+     <Opportunity />
+     </Route>
+
+     <Route path="/Spirit">
+     <Spirit />
+     </Route>
+
+
  </Switch>
  </div>
 

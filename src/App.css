@@ -38,11 +38,15 @@
   }
 }
 
+.header {
+  font-size: 2rem;
+  width: 80%;
+}
 
 
 .image {
-  width: 40rem;
-  height: 40rem;
+  width: 80rem;
+  height: 80rem;
 }
 
 .neo-objects {
