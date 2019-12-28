@@ -15,16 +15,18 @@ today = yyyy + '-' + mm + '-' +dd ;
 
 function NEO() {
   const [neo, setNeo] = useState([]);
-  
+
 
   useEffect(() => {
     axios
 
       .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
       .then(response => {
-        console.log(response.data.near_earth_objects[today]);
+         console.log(response.data.near_earth_objects[today]);
+       
  
         setNeo(response.data.near_earth_objects[today]);
+   
       })
       .catch(err => {
         console.log(err);
@@ -36,15 +38,17 @@ function NEO() {
   return (
     <div className="App">
         <h1> Near Earth Objects  for {today}</h1> 
-        {neo.map(rocks =>{
+        {neo.map(rock =>{
            
             return (
-            <div className="neo-objects" key={rocks.estimated_diameter.miles.estimated_diameter_max}>
+            <div className="neo-objects" key={rock.estimated_diameter.miles.estimated_diameter_max}>
                
-                <h2 key={rocks.name}>Name of Object: {rocks.name}</h2>
-                <h2>Size : {rocks.estimated_diameter.miles.estimated_diameter_max} miles</h2>
-                <h3>Potentially hazardous: {rocks.is_potentially_hazardous_asteroid[Boolean]}</h3>
-                {/* <p>Miss Distance:{rocks.close_approach_data.miss_distance.miles} </p> */}
+                <h2 key={rock.name}>Name of Object: {rock.name}</h2>
+                <h2>Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</h2>
+                <h3>Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`} </h3>
+              
+
+                {/* <h4>Miss Distance:{console.log(rocks.close_approach_data.close_approach_date)} </h4> */}
             </div>
             )
         })}
