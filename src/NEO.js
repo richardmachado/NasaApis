@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
-
-
 import axios from "axios";
+import "./App.css";
 
+
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' +dd ;
 
 
 
@@ -15,27 +22,29 @@ function NEO() {
 
       .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
       .then(response => {
-        // console.log(response.data.near_earth_objects['{Date}']);
-        setNeo(response.data.near_earth_objects['2019-12-17']);
+        console.log(response.data.near_earth_objects[today]);
+ 
+        setNeo(response.data.near_earth_objects[today]);
       })
       .catch(err => {
         console.log(err);
       });
   }, []);
   if (!neo) {
-    return <div>Loading ... </div>;
+    return <div>Nothing is loading ...Likely today is incorrect as you are not on Eastern time </div>;
   }
   return (
     <div className="App">
-        <h1>Today's Near Earth Objects </h1> 
+        <h1> Near Earth Objects  for {today}</h1> 
         {neo.map(rocks =>{
            
             return (
-            <div key={rocks.estimated_diameter.miles.estimated_diameter_max}>
+            <div className="neo-objects" key={rocks.estimated_diameter.miles.estimated_diameter_max}>
                
-            <h2 key={rocks.name}>Name of Object: {rocks.name}</h2>
-            <p >Size : "{rocks.estimated_diameter.miles.estimated_diameter_max} miles"</p>
-            {/* <p>Miss Distance:{rocks.close_approach_data.relative_velocity.miles_per_hour} </p> */}
+                <h2 key={rocks.name}>Name of Object: {rocks.name}</h2>
+                <h2>Size : {rocks.estimated_diameter.miles.estimated_diameter_max} miles</h2>
+                <h3>Potentially hazardous: {rocks.is_potentially_hazardous_asteroid[Boolean]}</h3>
+                {/* <p>Miss Distance:{rocks.close_approach_data.miss_distance.miles} </p> */}
             </div>
             )
         })}

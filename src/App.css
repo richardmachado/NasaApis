@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -42,4 +43,16 @@
 .image {
   width: 40rem;
   height: 40rem;
+}
+
+.neo-objects {
+  width: 60%;
+  height: 150px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
