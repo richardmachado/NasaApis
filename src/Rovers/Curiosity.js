@@ -56,13 +56,13 @@ function Curiosity () {
          <select name="camera" 
           onChange={e => handleSubmit(e)}
           form="camera">
-          <option value="FHAZ ">Forward Hazard</option>
-          <option value="RHAZ">Rear Hazard</option>
-          <option value="MAST">Mast Mounted</option>
-          <option value="CHEMCAM">Chem Cam</option>
-          <option value="MAHLI">Mars Hand Lens Imager</option>
-          <option value="MARDI">Mars Descent Imager</option>
-          <option value="NAVCAM">NAVCAM</option>
+            <option value="RHAZ">Rear Hazard</option>  
+            <option value="FHAZ ">Front Hazard</option>
+            <option value="MAST">Mast Mounted</option>
+            <option value="CHEMCAM">Chem Cam</option>
+            <option value="MAHLI">Mars Hand Lens Imager</option>
+            <option value="MARDI">Mars Descent Imager</option>
+            <option value="NAVCAM">NAVCAM</option>
         </select>
       </label>
 

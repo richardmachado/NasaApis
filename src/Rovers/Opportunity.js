@@ -54,8 +54,8 @@ function Opportunity () {
          <select name="camera" 
           onChange={e => handleSubmit(e)}
           form="camera">
-          <option value="FHAZ ">Forward Hazard</option>
           <option value="RHAZ">Rear Hazard</option>
+          <option value="FHAZ ">Front Hazard</option>
           <option value="NAVCAM">Navigation Camera</option>
           <option value="PANCAM">Panoramic Camera</option>
           <option value="MINITES">MiniTES</option>
