@@ -5,13 +5,16 @@ import "../App.css";
 
 function Spirit () {
     const [mars, setMars] = useState(0);
-    // console.log(mars)
+    const [day, setDay] = useState(0);
+    const handleChange = event => {
+      setDay(event.target.value);
+    };
   
   
   
     useEffect(() => {
       
-    axios.get("https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=1&camera=RHAZ&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")
+    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=${day}&camera=RHAZ&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
           .then(response => {
           console.log(response.data.photos);
           setMars(response.data.photos);
@@ -19,7 +22,7 @@ function Spirit () {
         .catch(err => {
           console.log(err);
         });
-    }, []);
+    }, [day]);
     if (!mars) {
       return <div> <img src={loading} alt= "loading"></img> </div>;
     }
@@ -30,7 +33,16 @@ function Spirit () {
   <p className="header">This API is designed to collect image data gathered by NASA's Spirit 
   rover on Mars and make it more easily available to other developers, educators, and citizen 
   scientists. This API is maintained by Chris Cerami.</p>
-        <p>day=sol = (ranges from 0 to max found in endpoint)</p>
+        
+        <label htmlFor="day">
+          Enter a day - 0 is 1st day on Mars, etc
+        <input type="text" 
+         onChange={event => handleChange(event)}
+        placeholder="day"
+        name ="day"></input>
+    
+        </label>
+        
        <p> Camera: FHAZ RHAZ NAVCAM PANCAM MINITES -- Need to make these live links to update the camera</p>
        
        {mars.map(photos => {

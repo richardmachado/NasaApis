@@ -1,14 +1,10 @@
 import React from 'react';
-import {  Nav, Navbar} from 'react-bootstrap';
+import { Nav, Navbar} from 'react-bootstrap';
 import { NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-import {
- 
-    Switch,
-    Route,
-    Link } from "react-router-dom";
+import { Switch, Route,Link } from "react-router-dom";
 
     
 import Home from '../Home';
@@ -37,7 +33,7 @@ function Navi () {
       <NavLink tag={Link} to="/Spirit">Spirit</NavLink>
     </Nav>
     <Nav>
-      <Nav.Link href="#deets">Richard Machado</Nav.Link>
+      <Nav.Link href="/">Richard Machado</Nav.Link>
    
     </Nav>
   </Navbar.Collapse>
