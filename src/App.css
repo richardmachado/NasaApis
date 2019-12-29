@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: sandybrown;
  
 }
 
@@ -62,6 +63,3 @@
   justify-content: space-between;
 }
 
-.prompt {
-  font-size: 20px;
-}
