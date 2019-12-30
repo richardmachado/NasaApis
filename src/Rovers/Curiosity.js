@@ -38,8 +38,11 @@ function Curiosity () {
     return (
       <div className="App">
   <h1>Mars Curiosity Rover Photos</h1>
-  <p className="header">This API is designed to collect image data gathered by NASA's Curiosity rover on Mars and make it more easily available to other developers, educators, and citizen scientists. This API is maintained by Chris Cerami.</p>
-
+  <p className="header">This API is designed to collect image data 
+  gathered by NASA's Curiosity rover on Mars and make it more easily 
+  available to other developers, educators, and citizen scientists. 
+  This API is maintained by Chris Cerami.</p>
+  <h1> Day Selected {day} Camera Selected {camera}</h1>
 
 
   <label className= "prompt" htmlFor="day">

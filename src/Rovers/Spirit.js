@@ -40,7 +40,7 @@ function Spirit () {
   <p className="header">This API is designed to collect image data gathered by NASA's Spirit 
   rover on Mars and make it more easily available to other developers, educators, and citizen 
   scientists. This API is maintained by Chris Cerami.</p>
-        
+  <h1> Day Selected {day} Camera Selected {camera}</h1>     
       <label htmlFor="day">
           Enter a number - 0 is 1st day on Mars, etc
         <input type="text" 

@@ -25,9 +25,7 @@ function NEO() {
       .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
       .then(response => {
          console.log(response);
-       
- 
-        setNeo(response.data.near_earth_objects[today]);
+          setNeo(response.data.near_earth_objects[today]);
    
       })
       .catch(err => {
