@@ -24,7 +24,7 @@ function NEO() {
 
       .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
       .then(response => {
-         console.log(response);
+       console.log(response)
           setNeo(response.data.near_earth_objects[today]);
    
       })
@@ -40,11 +40,11 @@ function NEO() {
         <h1> Near Earth Objects  for {today}</h1> 
         {neo.map(rock =>{
            return (
-            <div className="neo-objects" key={rock.estimated_diameter.miles.estimated_diameter_max}>
+            <div className="neo-objects" key={rock.name}>
                
-                <h2 key={rock.name}>Name of Object: {rock.name}</h2>
-                <h2>Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</h2>
-                <h3>Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`} </h3>
+                <h2 className= "rockname" key={rock.name}>Name of Object: {rock.name}</h2>
+                <h2 className= "rockname" >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</h2>
+                <h3 className= "rockname" >Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`} </h3>
             </div>
             )
         })}

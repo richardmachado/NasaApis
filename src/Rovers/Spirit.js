@@ -23,7 +23,7 @@ function Spirit () {
       
     axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=${day}&camera=${camera}&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
           .then(response => {
-          console.log(response.data.photos);
+          // console.log(response.data.photos);
           setMars(response.data.photos);
         })
         .catch(err => {

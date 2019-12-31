@@ -15,6 +15,7 @@ import Curiosity from '../Rovers/Curiosity';
 import Opportunity from '../Rovers/Opportunity'
 import Spirit from '../Rovers/Spirit'
 
+
 function Navi () {
 
   
@@ -31,6 +32,7 @@ function Navi () {
       <NavLink tag={Link} to="/Curiosity">Curiosity</NavLink>
       <NavLink tag={Link} to="/Opportunity">Opportunity</NavLink>
       <NavLink tag={Link} to="/Spirit">Spirit</NavLink>
+      
     </Nav>
     <Nav>
       <Nav.Link href="/">Richard Machado</Nav.Link>
@@ -68,6 +70,8 @@ function Navi () {
      <Route path="/Spirit">
      <Spirit />
      </Route>
+
+   
 
 
  </Switch>

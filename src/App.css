@@ -26,29 +26,21 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .header {
-  font-size: 2rem;
-  width: 80%;
-  justify-items: right;
+  font-size: 0.9rem;
+  width: 90%;
+  text-align: center;
+  border: 1px black solid;
+  margin-left: 3em;
+  padding: 1em;
 }
 
 
 .image {
-  width: 10rem;
-  height: 10rem;
+  width: 20rem;
+  height: 20rem;
 }
 
 .neo-objects {
@@ -61,5 +53,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: rgb(235, 233, 233);
+ 
+}
+.rockname {
+  font-size: 1rem;
 }
 

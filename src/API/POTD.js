@@ -1,46 +1,77 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios"
-
-import PhotoCard from "../PhotoCard"
-import styled from 'styled-components';
-
-// import DateMod from './DatePicker';
-
-const Headerfont = styled.div`
-color: white;
-
-text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
-    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
-    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
-    0 20px 20px rgba(0, 0, 0, 0.15);
-`;
+import React, { Component } from 'react'
+import DateInput from './Datepicker'
+import Photo from '../PhotoCard'
 
 
+class App extends Component {
+  state = {
+    date: new Date(),
+    photo: ''
+  }
+  randomDate = (start, end) => {
+    // return random date between start of Nasa POD and current Date
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    )
+  }
 
-function Photo () {
-  const [nasaImg, setNasaImg] = useState([]);
-  useEffect(() => {
-    
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")
-    .then(res => {
-      setNasaImg(res.data);
-      // console.log(res.data);
-    });
+  handleClick = (date) => {
+    // generates random date and passes it into our
+    // changeDate function which also updates state and
+    // fetches a photo again
+    let ranDate = this.randomDate(new Date(1995, 0o6 - 1, 16), new Date())
+    this.changeDate(ranDate)
+  }
+  formatDate = (date) => {
+    // converts date to yyyy-mm-dd
+    return date.toISOString().split('T')[0]
+  }
+  changeDate = (date) => {
+    this.setState({ date: date })
+    this.getPhotoByDate(this.formatDate(date))
+  }
+  getPhotoByDate = date => {
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((photoData) => {
+        this.setState({ photo: photoData })
+      })
+  }
+  // lifecycle method that render photo before app renders
+  componentDidMount() {
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        this.setState({ photo: json })
+      })
+  }
 
-  }, []);
+  
 
-  return (
-    <div className="App">
-      <Headerfont>
-      <div class="center">
-        <h1>NASA PHOTO OF THE DAY</h1>
-       
+
+  render() {
+    // Style for header
+    const headerStyle = {
+      
+      textAlign: 'center'
+    }
+    return (
+      <div className="container">
+        <div className="card card-body">
+          <h2 style={headerStyle} >NASA's Astronomy Picture of the Day</h2>
+          <DateInput
+            date={this.state.date}
+            changeDate={this.changeDate}
+            handleClick={this.handleClick}
+          />
+          <Photo photo={this.state.photo} />
         </div>
-        </Headerfont>
-      <PhotoCard title={nasaImg.title} url={nasaImg.url} explanation={nasaImg.explanation} date={nasaImg.date} /> 
-    </div>
-  );
+      </div>
+    )
+  }
 }
-
-export default Photo;
+export default App

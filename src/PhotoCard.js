@@ -1,59 +1,50 @@
-import React from "react";
-import styled from 'styled-components';
+import React from 'react'
+const Photo = (props) => {
 
-const  Explanation = styled.p `
+  const explanationStyles = {
+    fontWeight: 'bold',
   
-    font-size: 24px;
-	width: 80%;
-    text-align: center; 
-    font-style: italic;
-    margin-left: 4rem;
-`
+  }
 
-const Title = styled.h1 `
-    color:white;
-    background-color: blue;
-    text-align: center;
-   
+  const titleStyles = {
+
+    textAlign: 'center'
+  }
+
+  //function to check to see if nasa api returns video or image
+  // and render correct html accordingly
+  function renderContentType() {
+    if (props.photo.media_type === 'image') {
+      return (
+        <img
+          style={{ marginBottom: '20px' }}
+          className="img-fluid rounded"
+          src={props.photo.url}
+          alt={props.photo.title}
+        />
+      )
+    } else if (props.photo.media_type === 'video') {
+      return (
+        <iframe
+          style={{ marginBottom: '20px' }}
+          title="nasa video of the day"
+          className="img-fluid rounded"
+          src={props.photo.url}
+          alt={props.photo.title}
+        ></iframe>
+      )
+    } else {
+      return
+    }
+  }
+  return (
+    <div className="card card-body bg-light">
+      <h4 style={titleStyles}>{props.photo.title}</h4>
+
+      {renderContentType()}
+      <p style={explanationStyles}>{props.photo.explanation}</p>
+    </div>
+  )
 }
-@keyframes blinkingText{
-    0%{     color: #000;    }
-    49%{    color: red; }
-    50%{    color: orange; }
-    99%{    color: transparent;  }
-    100%{   color: #000;    }
-}
-`
-const Date = styled.h2`
-    color:white
-`
-const Details= styled.h3`
-color: black;
-font-size: 6rem;
 
-
-`
-
-const PhotoCard = (props) => {
-    return(
-        <div>
-            <Title>
-                {props.title}
-            </Title>
-            <Date>
-                Today's date: {props.date}
-            </Date>
-            <img src = {props.url} alt="img"/>
-        <div>
-            <Details>
-                Details
-            </Details>
-            <Explanation>
-            {props.explanation}
-            </Explanation>
-        </div>
-        </div>
-    );
-};
-
-export default PhotoCard;
+export default Photo
