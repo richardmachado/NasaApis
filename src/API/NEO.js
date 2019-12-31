@@ -6,12 +6,14 @@ import loading from '../loading.jpg'
 
 // function for today so that it automatically updates the site
 
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
+var today = new Date()
+var dd = String(today.getUTCDate()).padStart(2, '1');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
-
 today = yyyy + '-' + mm + '-' + dd ;
+
+
+
 // end of today function
 
 
@@ -22,9 +24,9 @@ function NEO() {
   useEffect(() => {
     axios
 
-      .get("https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")   
+      .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)   
       .then(response => {
-       console.log(response)
+   
           setNeo(response.data.near_earth_objects[today]);
    
       })
@@ -44,7 +46,7 @@ function NEO() {
                
                 <h2 className= "rockname" key={rock.name}>Name of Object: {rock.name}</h2>
                 <h2 className= "rockname" >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</h2>
-                <h3 className= "rockname" >Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`} </h3>
+                <h3 className= "rockname2" >Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`} </h3>
             </div>
             )
         })}
