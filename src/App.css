@@ -61,3 +61,14 @@
   font-size: 1rem;
 }
 
+.earth {
+  height: 30rem;
+  width: 30rem;
+ 
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
