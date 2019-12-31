@@ -9,7 +9,7 @@ import { Switch, Route,Link } from "react-router-dom";
     
 import Home from '../Home';
 import Photo from '../API/POTD';
-import EPIC from '../API/EPIC';
+// import EPIC from '../API/EPIC';
 import NEO from '../API/NEO';
 import Curiosity from '../Rovers/Curiosity';
 import Opportunity from '../Rovers/Opportunity'
@@ -27,7 +27,7 @@ function Navi () {
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
       <NavLink tag={Link} to="/POTD">Photo of the Day</NavLink>
-      <NavLink tag={Link} to="/EPIC">EPIC API</NavLink>
+      {/* <NavLink tag={Link} to="/EPIC">EPIC API</NavLink> */}
       <NavLink tag={Link} to="/NEO">Near Earth Objects</NavLink>
       <NavLink tag={Link} to="/Curiosity">Curiosity</NavLink>
       <NavLink tag={Link} to="/Opportunity">Opportunity</NavLink>
@@ -48,11 +48,11 @@ function Navi () {
    </Route>
    <Route path="/POTD">
      <Photo />
-
-     </Route>
-     <Route path="/EPIC">
-     <EPIC />
     </Route>
+    
+     {/* <Route path="/EPIC">
+     <EPIC />
+    </Route> */}
      
      <Route path="/NEO">
      <NEO />
