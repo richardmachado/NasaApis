@@ -7,10 +7,11 @@ import loading from '../loading.jpg'
 // function for today so that it automatically updates the site
 
 var today = new Date()
-var dd = String(today.getUTCDate()).padStart(2, '1');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var dd = String(today.getUTCDate()).padStart(2, '0');
+var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + dd ;
+console.log(today)
 
 
 
