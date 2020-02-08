@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
 import loading from '../loading.jpg'
+import {Card } from 'react-bootstrap';
 
 
 // function for today so that it automatically updates the site
@@ -11,7 +12,7 @@ var dd = String(today.getUTCDate()).padStart(2, '0');
 var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + dd ;
-console.log(today)
+
 
 
 
@@ -41,14 +42,20 @@ function NEO() {
   return (
     <div className="App">
         <h1> Near Earth Objects  for {today}</h1> 
+        <p className="paragraph">The challenge on this API was NASA uses GMT time while Date.now uses the time on your computer. The information would not display after 5PM Pacific since it was already the following day according to GMT</p>
         {neo.map(rock =>{
            return (
-            <div className="neo-objects" key={rock.name}>
-               
-                <h2 className= "rockname" key={rock.name}>Name of Object: {rock.name}</h2>
-                <h2 className= "rockname" >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</h2>
-                <h3 className= "rockname2" >Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`} </h3>
-            </div>
+          
+  <Card key = {rock.name} id="Card" border="light" text="light"style={{ width: '30rem' }}>
+    <Card.Header  >Object Name: {rock.name}</Card.Header>
+    <Card.Body>
+      <Card.Title >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</Card.Title>
+      <Card.Text >
+      Potentially hazardous: {`${rock.is_potentially_hazardous_asteroid}`}
+      </Card.Text>
+    </Card.Body>
+  </Card>
+          
             )
         })}
 
