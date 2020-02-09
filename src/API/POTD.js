@@ -63,6 +63,9 @@ class App extends Component {
       <div className="container">
         <div className="card card-body">
           <h2 style={headerStyle} >NASA's Astronomy Picture of the Day</h2>
+          <p>This API incorporates several different components, such as a datepicker, and a random date picker.
+             The full code used can be found <span></span>
+            <a href="https://github.com/richardmachado/NasaApis/blob/gh-pages/src/API/POTD.js" target= "_blank" rel="noopener noreferrer">here</a></p>
           <DateInput
             date={this.state.date}
             changeDate={this.changeDate}
