@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Nav, Navbar} from 'react-bootstrap';
 import { NavLink } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 import {

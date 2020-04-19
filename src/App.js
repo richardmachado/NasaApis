@@ -1,9 +1,10 @@
 import React, { Component} from 'react';
+import Home from "./Home"
 
+import {  Route } from 'react-router-dom';
 
 import './App.css';
 
-// import Youtube from './Youtube';
 // import Navbar from "./Navigation/Navigation";
 import Navi from "./Navigation/Nav"
 // import Footer from "./Footer";
@@ -12,11 +13,9 @@ import Navi from "./Navigation/Nav"
 class App extends Component {
   render() {
     return (
-     
-      <div className="App">
-   
-         {/* <Navbar />   */}
-         <Navi />
+      <div className="container">
+        <Navi />
+        <Route exact path="/" component={Home} />
       </div>
     );
   }
