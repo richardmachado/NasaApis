@@ -6,6 +6,7 @@ export default function Home () {
   
         return (
           <div>
+            <div className="homepage">
             <h2>NASA APIs </h2>
             <div className="group">
             <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt="nasa logo"/>
@@ -17,6 +18,7 @@ export default function Home () {
            <h3>This is also a single page set up</h3>
            <p>This was a valuable exercise in consuming different API's that return different json file types</p>
           
-          </div>
+            </div>
+            </div>
         );
       }

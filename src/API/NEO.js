@@ -6,6 +6,16 @@ import classNames from 'classnames';
 import NEOKey from "./NEOKey"
 import "./NEO.css"
 
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
+
 
 
 
@@ -41,7 +51,14 @@ function NEO(props) {
       });
   }, []);
   if (!neo) {
-    return <div>Loading...</div>;
+    return <div className="sweet-loading">
+    <ClipLoader
+      css={override}
+      size={150}
+      color={"#123abc"}
+     
+        />
+         </div>;
   }
   return (
     <div className="body">
@@ -49,22 +66,16 @@ function NEO(props) {
         <h1 className="display-4 my3"><span classname="text-dark"> Near Earth Objects </span>  for  {today}</h1>        
           <NEOKey />  
         {neo.map(rock => {
-            return (
-            <ul className="list-group">
-      <h4 className="mb3" key={rock.name} style={{width:'500px'}}>Object Name: <span className={classNames({
+          return (
+           <div>
+            <h4 className="mb3" key={rock.name} >Object Name: <span className={classNames({
               'text-danger': !rock.name,
-              'text-success': rock.name})}>{rock.name}</span></h4>    
-          <ul className="group-list">      
-        <li className="group-list-item" >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</li>
-        {/* <li className="group-list-item">
-        Potentially hazardous: <span className={classNames({
-              'text-danger': rock.is_potentially_hazardous_asteroid,
-              'text-success': !rock.is_potentially_hazardous_asteroid})}>
-                      {`${rock.is_potentially_hazardous_asteroid ? 'Yes' : 'No'}`}
-                      </span>          
-                    </li> */}
-                    </ul>                  
-                    </ul>
+              'text-success': rock.name
+            })}>{rock.name}</span></h4>
+             
+            <p className="my-3" >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</p>
+            </div>
+                    
   )
   })}
       </div>

@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import loading from '../loading.jpg'
+
 import "../App.css";
+import "./rovers.css";
+
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 
 function Curiosity () {
@@ -32,11 +42,18 @@ function Curiosity () {
         });
     },[day, camera]);
     if (!mars) {
-      return <div> <img src={loading} alt= "loading"></img> </div>;
+      return  <div className="sweet-loading">
+      <ClipLoader
+        css={override}
+        size={150}
+        color={"#123abc"}
+       
+          />
+           </div>;
     }
   
     return (
-      <div className="App">
+      <div className="Mars">
   <h1>Mars Curiosity Rover Photos</h1>
   <p className="header">This API is designed to collect image data 
   gathered by NASA's Curiosity rover on Mars and make it more easily 

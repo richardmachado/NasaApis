@@ -1,8 +1,21 @@
-/* .App {
+
+ .App {
   text-align: center;
-  background-color: sandybrown;
  
+ 
+ 
+} 
+
+.homepage{
+  background-image: url('./launch-unsplash.jpeg');
+background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  
+  
 }
+
+/* 
 
 .App-logo {
   height: 40vmin;
@@ -75,4 +88,4 @@
 .paragraph {
   
   width: 80%;
-} */
+} */ 

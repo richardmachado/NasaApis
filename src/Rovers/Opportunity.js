@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "../App.css";
-import loading from '../loading.jpg'
+import "./rovers.css";
+
+
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 
 function Opportunity () {
     const [mars, setMars] = useState(0);
@@ -29,17 +40,24 @@ function Opportunity () {
         });
     }, [day, camera]);
     if (!mars) {
-      return <div> <img src={loading} alt= "loading"></img> </div>;
+      return <div className="sweet-loading">
+      <ClipLoader
+        css={override}
+        size={150}
+        color={"#123abc"}
+       
+          />
+           </div>;
     }
   
     return (
-      <div className="App">
+      <div className="Mars">
   <h1>Mars Opportunity Rover Photos</h1>
   <p className="header">This API is designed to collect image data gathered by NASA's Opportunity rover on Mars 
       and make it more easily available to other developers, educators, and citizen scientists. 
       This API is maintained by Chris Cerami.</p>
      <h1> Day Selected {day} Camera Selected {camera}</h1>
-      <label htmlFor="day">
+      <label className= "prompt" htmlFor="day">
           Enter a number - 0 is 1st day on Mars, etc
         <input type="text" 
         onChange={event => handleChange(event)}

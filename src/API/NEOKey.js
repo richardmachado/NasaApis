@@ -6,9 +6,8 @@ export default function NEOKey() {
             <p>
                 <span className="px-3 mr-2 bg-success" /> = Safe Asteroid
             </p>
-          
             <p>
-                <span className="px-3 mr-2 bg-danger" /> = Dangerous Asteroid
+                <span className="px-3 mr-2 bg-danger" /> = Possibly Dangerous Asteroid
             </p>
         </div>
     )
