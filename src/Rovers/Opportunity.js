@@ -3,7 +3,6 @@ import axios from 'axios';
 import "../App.css";
 import "./rovers.css";
 
-
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/core";
 
@@ -12,7 +11,6 @@ const override = css`
   margin: 0 auto;
   border-color: red;
 `;
-
 
 function Opportunity () {
     const [mars, setMars] = useState(0);
@@ -24,15 +22,12 @@ function Opportunity () {
     };
     const handleSubmit = e => {
       setCamera(e.target.value);
-
     }
-  
-  
     useEffect(() => {
       
     axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=${day}camera=${camera} &api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
           .then(response => {
-          console.log(response.data.photos);
+          // console.log(response.data.photos);
           setMars(response.data.photos);
         })
         .catch(err => {
@@ -51,24 +46,24 @@ function Opportunity () {
     }
   
     return (
-      <div className="Mars">
-  <h1>Mars Opportunity Rover Photos</h1>
+      <div className="mars">
+            <div className="top-box">
+  <h1 className="title">Mars Opportunity Rover Photos</h1>
   <p className="header">This API is designed to collect image data gathered by NASA's Opportunity rover on Mars 
       and make it more easily available to other developers, educators, and citizen scientists. 
-      This API is maintained by Chris Cerami.</p>
-     <h1> Day Selected {day} Camera Selected {camera}</h1>
+    </p>
+
       <label className= "prompt" htmlFor="day">
-          Enter a number - 0 is 1st day on Mars, etc
+          Enter a number - 0 is 1st day on Mars, etc <span>  </span>
         <input type="text" 
         onChange={event => handleChange(event)}
         placeholder="day"
         name ="day">
-
         </input>
       </label>
 
-       <label htmlFor="camera">
-         Select a camera
+       <label className="prompt" htmlFor="camera">
+             Select a camera
          <select name="camera" 
           onChange={e => handleSubmit(e)}
           form="camera">
@@ -80,15 +75,14 @@ function Opportunity () {
         </select>
       </label>
         
-      <p> if any entry gives a blank page, that means no photos are available that day</p>
-
+      <p className="blank-response"> if any entry gives a blank page, that means no photos are available that day</p>
+      </div>
        {mars.map(photos => {
          
         return  <div key={photos.id}>
           <img className="image" src ={photos.img_src} alt ="img"/>
-          
-         <p>Camera: {photos.camera.full_name}</p>
-         <p>Date / Time = {photos.earth_date}</p>
+
+         <p className="prompt">Date = {photos.earth_date}</p>
          </div>
        })} 
       </div>

@@ -1,7 +1,34 @@
-.Mars{
+.mars{
     background-image: url('./mars-unsplash.jpeg');
-  background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     width: 100%;
-    
 }
+
+.top-box {
+  background-color:#f7aa02;
+}
+
+p {
+  color:white
+}
+
+.title {
+  color:black;
+}
+
+.prompt {
+  color:black;
+  font-size: 2rem;
+
+}
+
+.header {
+  font-size: 2.5rem;
+  color:black;
+}
+
+.blank-response {
+  font-size:2rem;
+  color:red;
+}
+

@@ -15,10 +15,6 @@ const override = css`
   border-color: red;
 `;
 
-
-
-
-
 // function for today so that it automatically updates the site
 
 var today = new Date()
@@ -26,9 +22,6 @@ var dd = String(today.getUTCDate()).padStart(2, '0');
 var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + dd ;
-
-
-
 
 // end of today function
 
@@ -41,10 +34,8 @@ function NEO(props) {
     axios
 
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)   
-      .then(response => {
-          
+      .then(response => {  
           setNeo(response.data.near_earth_objects[today]);
-   
       })
       .catch(err => {
         console.log(err);
@@ -56,7 +47,6 @@ function NEO(props) {
       css={override}
       size={150}
       color={"#123abc"}
-     
         />
          </div>;
   }

@@ -28,7 +28,6 @@ function Curiosity () {
 
     }
     
-
     useEffect(() => {
       
     axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${day}&camera=${camera}&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
@@ -53,17 +52,16 @@ function Curiosity () {
     }
   
     return (
-      <div className="Mars">
-  <h1>Mars Curiosity Rover Photos</h1>
+      <div className="mars">
+        <div className="top-box">
+          <h1 className="title">Mars Curiosity Rover Photos</h1>
   <p className="header">This API is designed to collect image data 
   gathered by NASA's Curiosity rover on Mars and make it more easily 
   available to other developers, educators, and citizen scientists. 
-  This API is maintained by Chris Cerami.</p>
-  <h1> Day Selected {day} Camera Selected {camera}</h1>
-
+ </p>
 
   <label className= "prompt" htmlFor="day">
-          Enter a number - 0 is 1st day on Mars, etc
+          Enter a number - 0 is 1st day on Mars, etc <span>   </span>
         <input type="text" 
         onChange={event => handleChange(event)}
         placeholder="day"
@@ -71,7 +69,7 @@ function Curiosity () {
         </input>
       </label>
 
-  <label htmlFor="camera">
+  <label className="prompt" htmlFor="camera">
          Select a camera
          <select name="camera" 
           onChange={e => handleSubmit(e)}
@@ -86,16 +84,13 @@ function Curiosity () {
         </select>
       </label>
 
-      <p> if any entry gives a blank page, that means no photos are available that day</p>
-
-       
+      <p className="blank-response"> if any entry gives a blank page, that means no photos are available that day</p>
+      </div>
        {mars.map(photos => {
-         
         return  <div key={photos.id}>
           <img className="image" src ={photos.img_src} alt ="img"/>
           
-         <p>Camera: {photos.camera.full_name}</p>
-         <p>Date / Time = {photos.earth_date}</p>
+         <p className="prompt">Date = {photos.earth_date}</p>
          </div>
        })} 
       </div>

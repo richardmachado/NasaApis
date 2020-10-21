@@ -1,91 +1,13 @@
 
  .App {
   text-align: center;
- 
- 
- 
 } 
 
 body{
   background-image: url('./launch-unsplash.jpeg');
-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   
-  
 }
 
-/* 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-
-
-.header {
-  font-size: 0.9rem;
-  width: 90%;
-  text-align: center;
-  border: 1px black solid;
-  margin-left: 3em;
-  padding: 1em;
-  background-color: rgb(165, 106, 42);
-}
-
-
-.image {
-  width: 20rem;
-  height: 20rem;
-}
-
-#Card {
- 
-  
-  border-radius: 10px;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: rgb(19, 13, 13);
-
- 
-}
-.rockname {
-  font-size: 1rem;
-}
-
-.earth {
-  height: 30rem;
-  width: 30rem;
- 
-}
-
-.group {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-}
-
-.paragraph {
-  
-  width: 80%;
-} */ 

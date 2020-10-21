@@ -15,8 +15,8 @@ export default function Home () {
            <hr />
            
            <h3>Click the links above to see different APIs in use</h3>
-           <h3>This is also a single page set up</h3>
-           <p>This was a valuable exercise in consuming different API's that return different json file types</p>
+           <h3>Built using React, SPA, single page set up</h3>
+           <p style={{color:'white', fontSize:'3rem'}}>This was a valuable exercise in consuming different API's that return different json responses</p>
           
             </div>
             </>
