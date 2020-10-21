@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DateInput from './Datepicker'
 import Photo from '../PhotoCard'
 
+const KEY = process.env.REACT_APP_KEY;
 
 class App extends Component {
   state = {
@@ -31,7 +32,7 @@ class App extends Component {
     this.getPhotoByDate(this.formatDate(date))
   }
   getPhotoByDate = date => {
-    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${KEY}`)
       .then((response) => {
         return response.json()
       })

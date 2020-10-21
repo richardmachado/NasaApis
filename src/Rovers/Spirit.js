@@ -12,6 +12,7 @@ const override = css`
   border-color: red;
 `;
 
+const KEY = process.env.REACT_APP_KEY;
 
 function Spirit () {
     const [mars, setMars] = useState(0);
@@ -28,7 +29,7 @@ function Spirit () {
     }
     useEffect(() => {
       
-    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=${day}&camera=${camera}&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)
+    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=${day}&camera=${camera}&api_key=${KEY}`)
           .then(response => {
           // console.log(response.data.photos);
           setMars(response.data.photos);
@@ -84,8 +85,6 @@ function Spirit () {
          
         return  <div key={photos.id}>
           <img className="image" src ={photos.img_src} alt ="img"/>
-          
-  
          <p className="prompt">Date = {photos.earth_date}</p>
          </div>
        })} 

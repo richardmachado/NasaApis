@@ -7,16 +7,15 @@ const Title = styled.p`
 width: 80%;
 margin-left: 8rem;
 `
+const KEY = process.env.REACT_APP_KEY;
 
 function EPIC () {
     const [neo, setNeo] = useState(0);
     // console.log(posts)
   
-  
-  
     useEffect(() => {
       
-    axios.get("https://api.nasa.gov/EPIC/api/natural/images?api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4")
+    axios.get(`https://api.nasa.gov/EPIC/api/natural/images?api_key=${KEY}`)
           .then(response => {
         //   console.log(response);
           setNeo(response.data);

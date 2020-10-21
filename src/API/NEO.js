@@ -25,22 +25,26 @@ today = yyyy + '-' + mm + '-' + dd ;
 
 // end of today function
 
+const KEY = process.env.REACT_APP_KEY;
 
 function NEO(props) {
   const [neo, setNeo] = useState([]);
-
+  // const [approach, setApproach] = useState([]);
 
   useEffect(() => {
     axios
 
-      .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`)   
-      .then(response => {  
-          setNeo(response.data.near_earth_objects[today]);
+      .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
+      .then(response => {
+        console.log(response)
+        setNeo(response.data.near_earth_objects[today]);
+        // setApproach(response.data.near_earth_objects[today].close_approach_data)
+        // console.log(response.data.near_earth_objects[today])
       })
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [neo]);
   if (!neo) {
     return <div className="sweet-loading">
     <ClipLoader
@@ -63,17 +67,19 @@ function NEO(props) {
               'text-success': rock.name
             })}>{rock.name}</span></h4>
              
-            <p className="my-3" >Size : {rock.estimated_diameter.miles.estimated_diameter_max} miles</p>
-            </div>
-                    
+              <p className="my-3" >Size(feet) : {rock.estimated_diameter.feet.estimated_diameter_max}
+              </p>
+{/*               
+              {approach.map(approaching => {
+                return (
+                  <div>{approaching.close_approach_date}</div>
+               )
+             })} */}
+            </div>                   
   )
   })}
       </div>
     </div>
-
-
-    
-    
   );
 }
 
