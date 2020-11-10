@@ -2,10 +2,7 @@ import React from 'react';
 import { Nav, Navbar} from 'react-bootstrap';
 import { NavLink } from 'reactstrap';
 
-
-
 import { Switch, Route,Link } from "react-router-dom";
-
     
 import Home from '../Home';
 import Photo from '../API/POTD';

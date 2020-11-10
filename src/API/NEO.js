@@ -6,15 +6,6 @@ import classNames from 'classnames';
 import NEOKey from "./NEOKey"
 import "./NEO.css"
 
-import ClipLoader from "react-spinners/ClipLoader";
-import { css } from "@emotion/core";
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-
 // function for today so that it automatically updates the site
 
 var today = new Date()
@@ -27,13 +18,12 @@ today = yyyy + '-' + mm + '-' + dd ;
 
 const KEY = process.env.REACT_APP_KEY;
 
-function NEO(props) {
+function NEO() {
   const [neo, setNeo] = useState([]);
   // const [approach, setApproach] = useState([]);
 
   useEffect(() => {
     axios
-
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
         console.log(response)
@@ -44,16 +34,8 @@ function NEO(props) {
       .catch(err => {
         console.log(err);
       });
-  }, [neo]);
-  if (!neo) {
-    return <div className="sweet-loading">
-    <ClipLoader
-      css={override}
-      size={150}
-      color={"#123abc"}
-        />
-         </div>;
-  }
+  },[]);
+
   return (
     <div className="body">
       <div className="container">
@@ -67,7 +49,7 @@ function NEO(props) {
               'text-success': rock.name
             })}>{rock.name}</span></h4>
              
-              <p className="my-3" >Size(feet) : {rock.estimated_diameter.feet.estimated_diameter_max}
+              <p className="size">Size(Maximum Diameter): {Math.round(((rock.estimated_diameter.feet.estimated_diameter_max))*100)/100} feet
               </p>
 {/*               
               {approach.map(approaching => {
