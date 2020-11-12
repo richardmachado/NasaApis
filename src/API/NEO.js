@@ -25,9 +25,7 @@ function NEO() {
     axios
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
-
         setNeo(response.data.near_earth_objects[today])
-
       })
       .catch(err => {
         console.log(err);
@@ -41,15 +39,13 @@ function NEO() {
           <NEOKey />  
         {neo.map(rock => {
           return (
-           <div key={rock.id}>
-            <h4 className="mb3"  >Object Name: <span className={classNames({
+           <div className="results" key={rock.id}>
+            <h4 className="mb3">Object Name: <span className={classNames({
               'text-danger': !rock.name,
               'text-success': rock.name
             })}>{rock.name}</span></h4>
-             
               <p className="size">
                 Size(Maximum Diameter): {Math.round(((rock.estimated_diameter.feet.estimated_diameter_max)) * 100) / 100} feet
- 
               </p>
               <p className="size">
                 Closest Approach Date: {rock.close_approach_data[0].close_approach_date}
@@ -62,8 +58,6 @@ function NEO() {
                 Relative Velocity : {Math.round(((rock.close_approach_data[0].relative_velocity.miles_per_hour)) * 100) / 100}
                     <span> </span>miles per hour
                 </p>
-
-
             </div>                   
   )
   })}
