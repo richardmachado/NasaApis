@@ -4,7 +4,6 @@ import Navi from "./Navigation/Nav"
 class App extends Component {
   render() {
     return (
-     
       <div className="App">
          <Navi />
       </div>

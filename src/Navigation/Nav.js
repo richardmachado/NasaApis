@@ -14,8 +14,6 @@ import Spirit from '../Rovers/Spirit'
 
 
 function Navi () {
-
-  
     return (
       <div>
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -32,7 +30,7 @@ function Navi () {
       
     </Nav>
     <Nav>
-      <Nav.Link href="/">Richard Machado</Nav.Link>
+      <Nav.Link href="http://richardmachado.dev">Richard Machado</Nav.Link>
    
     </Nav>
   </Navbar.Collapse>

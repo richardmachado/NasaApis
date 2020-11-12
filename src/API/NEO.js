@@ -20,16 +20,14 @@ const KEY = process.env.REACT_APP_KEY;
 
 function NEO() {
   const [neo, setNeo] = useState([]);
-  // const [approach, setApproach] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
-        console.log(response)
-        setNeo(response.data.near_earth_objects[today]);
-        // setApproach(response.data.near_earth_objects[today].close_approach_data)
-        // console.log(response.data.near_earth_objects[today])
+
+        setNeo(response.data.near_earth_objects[today])
+
       })
       .catch(err => {
         console.log(err);
@@ -39,24 +37,33 @@ function NEO() {
   return (
     <div className="body">
       <div className="container">
-        <h1 className="display-4 my3"><span classname="text-dark"> Near Earth Objects </span>  for  {today}</h1>        
+        <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {today}</h1>        
           <NEOKey />  
         {neo.map(rock => {
           return (
-           <div>
-            <h4 className="mb3" key={rock.name} >Object Name: <span className={classNames({
+           <div key={rock.id}>
+            <h4 className="mb3"  >Object Name: <span className={classNames({
               'text-danger': !rock.name,
               'text-success': rock.name
             })}>{rock.name}</span></h4>
              
-              <p className="size">Size(Maximum Diameter): {Math.round(((rock.estimated_diameter.feet.estimated_diameter_max))*100)/100} feet
+              <p className="size">
+                Size(Maximum Diameter): {Math.round(((rock.estimated_diameter.feet.estimated_diameter_max)) * 100) / 100} feet
+ 
               </p>
-{/*               
-              {approach.map(approaching => {
-                return (
-                  <div>{approaching.close_approach_date}</div>
-               )
-             })} */}
+              <p className="size">
+                Closest Approach Date: {rock.close_approach_data[0].close_approach_date}
+                </p>
+                <p className="size">
+                  Miss Distance : {Math.round(((rock.close_approach_data[0].miss_distance.miles)) * 100) / 100}
+                    <span> </span>miles
+                </p>
+                <p className="size">
+                Relative Velocity : {Math.round(((rock.close_approach_data[0].relative_velocity.miles_per_hour)) * 100) / 100}
+                    <span> </span>miles per hour
+                </p>
+
+
             </div>                   
   )
   })}
