@@ -3,11 +3,12 @@
   text-align: center;
 } 
 
-body{
+
+.homepage{
   background-image: url('./launch-unsplash.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100rem;
+  height:60rem;
   
 }
-
