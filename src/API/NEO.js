@@ -16,6 +16,10 @@ today = yyyy + '-' + mm + '-' + dd ;
 
 // end of today function
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const KEY = process.env.REACT_APP_KEY;
 
 function NEO() {
@@ -51,11 +55,11 @@ function NEO() {
                 Closest Approach Date: {rock.close_approach_data[0].close_approach_date}
                 </p>
                 <p className="size">
-                  Miss Distance : {Math.round(((rock.close_approach_data[0].miss_distance.miles)) * 100) / 100}
+                  Miss Distance : {numberWithCommas(Math.round(rock.close_approach_data[0].miss_distance.miles))}
                     <span> </span>miles
                 </p>
                 <p className="size">
-                Relative Velocity : {Math.round(((rock.close_approach_data[0].relative_velocity.miles_per_hour)) * 100) / 100}
+                Relative Velocity : {numberWithCommas(Math.round(rock.close_approach_data[0].relative_velocity.miles_per_hour))}
                     <span> </span>miles per hour
                 </p>
             </div>                   
