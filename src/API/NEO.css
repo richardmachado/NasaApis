@@ -3,6 +3,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    opacity: 80%;
 }
 
 .size {
@@ -11,5 +12,5 @@
 }
 
 .results{
-  margin-bottom: 3rem;
+  margin-bottom: 7rem;
 }

@@ -1,38 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from 'moment';
-
 import classNames from 'classnames';
 
 import NEOKey from "./NEOKey"
 import "./NEO.css"
 
-
 var today = moment().utc(true).format("YYYY-MM-DD");
-// var todayheader = moment().utc(true).format("MM-DD-YYYY");
-
-var tomorrow = moment().utc(true).add(1, 'd').format("YYYY-MM-DD")
-console.log(tomorrow)
-
-var dayaftertomorrow = moment().utc(true).add(2, 'd').format("YYYY-MM-DD")
-console.log(dayaftertomorrow)
-
-var twodaysaftertomorrow = moment().utc(true).add(3, 'd').format("YYYY-MM-DD")
-console.log(twodaysaftertomorrow)
-
-var threedaysaftertomorrow = moment().utc(true).add(4, 'd').format("YYYY-MM-DD")
-console.log( threedaysaftertomorrow)
-
-var fourdaysaftertomorrow = moment().utc(true).add(5, 'd').format("YYYY-MM-DD")
-console.log(fourdaysaftertomorrow)
-
-var fivedaysaftertomorrow = moment().utc(true).add(6, 'd').format("YYYY-MM-DD")
-console.log(fivedaysaftertomorrow )
-
-var sixdaysaftertomorrow = moment().utc(true).add(7, 'd').format("YYYY-MM-DD")
-console.log(sixdaysaftertomorrow)
-
-
+var tomorrow = moment().utc(true).add(1, 'd').format("YYYY-MM-DD");
+var dayaftertomorrow = moment().utc(true).add(2, 'd').format("YYYY-MM-DD");
+var twodaysaftertomorrow = moment().utc(true).add(3, 'd').format("YYYY-MM-DD");
+var threedaysaftertomorrow = moment().utc(true).add(4, 'd').format("YYYY-MM-DD");
+var fourdaysaftertomorrow = moment().utc(true).add(5, 'd').format("YYYY-MM-DD");
+var fivedaysaftertomorrow = moment().utc(true).add(6, 'd').format("YYYY-MM-DD");
+var sixdaysaftertomorrow = moment().utc(true).add(7, 'd').format("YYYY-MM-DD");
 
 // function to add commas to really large numbers
 
@@ -49,7 +30,6 @@ function NEO() {
 
   const handleSubmit = e => {
     setDate(e.target.value);
-
   }
 
   useEffect(() => {
@@ -62,14 +42,13 @@ function NEO() {
       .catch(err => {
         console.log(err);
       });
-  },[date]);
+  }, [date]);
 
   return (
     <div className="body">
       <div className="container">
         <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {date}</h1>        
         <NEOKey />  
-
         <label className="prompt" htmlFor="date">
          Select a Date
          <select name="date" 
@@ -85,10 +64,9 @@ function NEO() {
             <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option> 
         </select>
       </label>
-
         {neo.map(rock => {
           return (
-           <div key={rock.id}>
+           <div className="results" key={rock.id}>
             <h4 className="mb3" key={rock.name} >Object Name: <span className={classNames({
               'text-danger': !rock.name,
               'text-success': rock.name
