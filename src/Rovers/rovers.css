@@ -1,6 +1,6 @@
 .mars{
     background-image: url('./mars-unsplash.jpeg');
-    background-repeat: repeat;
+    /* background-repeat: repeat; */
     width: 100%;
 }
 
