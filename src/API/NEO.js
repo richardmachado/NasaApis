@@ -10,10 +10,10 @@ import "./NEO.css"
 
 var today = new Date()
 var dd = String(today.getUTCDate()).padStart(2, '0');
-var mm = String(today.getMonth()+2).padStart(2, '0'); //January is 0!
+var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + dd;
-console.log(today)
+
 
 // end of today function
 
@@ -30,7 +30,7 @@ function NEO() {
     axios
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
-        console.log(response.data.near_earth_objects[today])
+        // console.log(response.data.near_earth_objects[today])
         setNeo(response.data.near_earth_objects[today])
 
       })
