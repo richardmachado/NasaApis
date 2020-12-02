@@ -7,7 +7,8 @@ import { Switch, Route,Link } from "react-router-dom";
 import Home from '../Home';
 import Photo from '../API/POTD';
 // import EPIC from '../API/EPIC';
-import NEO from '../API/NEO';
+import NEO from '../API/NEO/NEO'
+import NEO2 from '../API/NEO/NEO2'
 import Curiosity from '../Rovers/Curiosity';
 import Opportunity from '../Rovers/Opportunity'
 import Spirit from '../Rovers/Spirit'
@@ -24,7 +25,7 @@ function Navi () {
       <NavLink tag={Link} to="/POTD">Photo of the Day</NavLink>
       {/* <NavLink tag={Link} to="/EPIC">EPIC API</NavLink> */}
       <NavLink tag={Link} to="/NEO">Near Earth Objects</NavLink>
-      <NavLink tag={Link} to="/NEOS">NEAR EARTH</NavLink>
+      <NavLink tag={Link} to="/NEO2">NEAR EARTH</NavLink>
       <NavLink tag={Link} to="/Curiosity">Curiosity</NavLink>
       <NavLink tag={Link} to="/Opportunity">Opportunity</NavLink>
       <NavLink tag={Link} to="/Spirit">Spirit</NavLink>
@@ -54,8 +55,8 @@ function Navi () {
      <NEO />
      </Route>
      
-     <Route path="/NEOS">
-     <NEO />
+     <Route path="/NEO2">
+     <NEO2 />
      </Route>
     
      <Route path="/Curiosity">
