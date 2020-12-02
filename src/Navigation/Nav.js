@@ -7,8 +7,8 @@ import { Switch, Route,Link } from "react-router-dom";
 import Home from '../Home';
 import Photo from '../API/POTD';
 // import EPIC from '../API/EPIC';
-import NEO from '../API/NEO/NEO'
-import NEO2 from '../API/NEO/NEO2'
+import NEO from '../API/NEO'
+import NEO2 from '../API/NEO2'
 import Curiosity from '../Rovers/Curiosity';
 import Opportunity from '../Rovers/Opportunity'
 import Spirit from '../Rovers/Spirit'
