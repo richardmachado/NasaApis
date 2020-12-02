@@ -1,9 +1,9 @@
 .body{
-    background-color:white;
-    background-repeat: no-repeat;
+    background-color:black;
+    /* background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    opacity: 80%;
+    opacity: 80%; */
 }
 
 .size {
@@ -17,4 +17,5 @@
 
 .results{
   margin-bottom: 7rem;
+  color:white
 }
