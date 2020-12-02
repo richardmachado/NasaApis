@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+// import axios from "axios";
 
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
 import NEOKey from "./NEOKey"
 import "./NEO.css"
@@ -17,27 +17,27 @@ today = yyyy + '-' + mm + '-' + dd;
 
 // end of today function
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+// function numberWithCommas(x) {
+//   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// }
 
-const KEY = process.env.REACT_APP_KEY;
+// const KEY = process.env.REACT_APP_KEY;
 
 function NEO2() {
-  const [neo, setNeo] = useState([]);
+//   const [neo, setNeo] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
-      .then(response => {
-        console.log(response.data.near_earth_objects[today])
-        setNeo(response.data.near_earth_objects[today])
+//   useEffect(() => {
+//     axios
+//       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
+//       .then(response => {
+//         console.log(response.data.near_earth_objects[today])
+//         setNeo(response.data.near_earth_objects[today])
 
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  },[]);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       });
+//   },[]);
 
   return (
     <div className="body">
