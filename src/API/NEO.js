@@ -22,6 +22,8 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+
+
 // secret NASA Key
 const KEY = process.env.REACT_APP_KEY;
 
@@ -78,10 +80,22 @@ function NEO() {
                <p className="size">
                 Closest Approach Date: {rock.close_approach_data[0].close_approach_date}
                 </p>
-                <p className="size">
+              {
+                rock.close_approach_data[0].miss_distance.miles < 500000 ? <p className="size" style={{color:"red"}}>
                 Miss Distance : {numberWithCommas(Math.round(rock.close_approach_data[0].miss_distance.miles))}
-                    <span> </span>miles
+                <span> </span>miles
                 </p>
+                :<p className="size" style={{color:"white"}}>
+                Miss Distance : {numberWithCommas(Math.round(rock.close_approach_data[0].miss_distance.miles))}
+                <span> </span>miles
+                </p>
+              }
+   
+      
+                  
+                
+                
+   
                 <p className="size">
                 Relative Velocity : {numberWithCommas(Math.round(rock.close_approach_data[0].relative_velocity.miles_per_hour))}
                     <span> </span>miles per hour
