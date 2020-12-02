@@ -7,9 +7,7 @@ import NEOKey from "./NEOKey"
 import "./NEO.css"
 
 var today = moment().utc(false).format("YYYY-MM-DD");
-console.log(today)
 var tomorrow = moment().utc(false).add(1, 'd').format("YYYY-MM-DD");
-console.log(tomorrow)
 var dayaftertomorrow = moment().utc(false).add(2, 'd').format("YYYY-MM-DD");
 var twodaysaftertomorrow = moment().utc(false).add(3, 'd').format("YYYY-MM-DD");
 var threedaysaftertomorrow = moment().utc(false).add(4, 'd').format("YYYY-MM-DD");
