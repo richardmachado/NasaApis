@@ -24,6 +24,7 @@ function Navi () {
       <NavLink tag={Link} to="/POTD">Photo of the Day</NavLink>
       {/* <NavLink tag={Link} to="/EPIC">EPIC API</NavLink> */}
       <NavLink tag={Link} to="/NEO">Near Earth Objects</NavLink>
+      <NavLink tag={Link} to="/NEOS">NEAR EARTH</NavLink>
       <NavLink tag={Link} to="/Curiosity">Curiosity</NavLink>
       <NavLink tag={Link} to="/Opportunity">Opportunity</NavLink>
       <NavLink tag={Link} to="/Spirit">Spirit</NavLink>
@@ -53,6 +54,9 @@ function Navi () {
      <NEO />
      </Route>
      
+     <Route path="/NEOS">
+     <NEO />
+     </Route>
     
      <Route path="/Curiosity">
      <Curiosity />
