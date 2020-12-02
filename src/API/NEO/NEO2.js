@@ -4,7 +4,7 @@ import React from "react";
 // import classNames from 'classnames';
 
 // import NEOKey from "./NEOKey"
-import "./NEO.css"
+// import "./NEO.css"
 
 // function for today so that it automatically updates the site
 
