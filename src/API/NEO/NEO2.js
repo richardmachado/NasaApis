@@ -30,7 +30,7 @@ function NEO2() {
     axios
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
-        // console.log(response.data.near_earth_objects[today])
+        console.log(response.data.near_earth_objects[today])
         setNeo(response.data.near_earth_objects[today])
 
       })
@@ -44,7 +44,7 @@ function NEO2() {
       <div className="container">
         <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {today}</h1>        
           <NEOKey />  
-        {neo.map(rock => {
+        {/* {neo.map(rock => {
           return (
            <div key={rock.id}>
             <h4 className="mb3" key={rock.name} >Object Name: <span className={classNames({
@@ -70,7 +70,7 @@ function NEO2() {
 
             </div>                   
   )
-  })}
+  })} */}
       </div>
     </div>
   );
