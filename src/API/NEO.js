@@ -138,9 +138,7 @@ console.log(sixdaysaftertomorrow)
    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
  }
 
-//today for header
-// const today2 = mm + '-' + dd + '-' + yyyy;
-const today2 = "Today"
+
 
 
 // function to add commas to really large numbers
