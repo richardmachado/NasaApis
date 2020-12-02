@@ -49,8 +49,8 @@ function NEO() {
       <div className="container">
         <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {date}</h1>        
         <NEOKey />  
-        <label className="prompt" htmlFor="date">
-         Select a Date
+        <label htmlFor="date">
+         <h3 className="prompter">Select a Date</h3>
          <select name="date" 
           onChange={e => handleSubmit(e)}
           form="date">
