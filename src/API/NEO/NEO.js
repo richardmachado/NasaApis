@@ -99,7 +99,7 @@ import axios from "axios";
 
 import classNames from 'classnames';
 
-import NEOKey from "./NEOKey"
+// import NEOKey from "./NEOKey"
 import "./NEO.css"
 
 // function for today so that it automatically updates the site
@@ -139,7 +139,7 @@ function NEO() {
     <div className="body">
       <div className="container">
         <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {today}</h1>        
-          <NEOKey />  
+          {/* <NEOKey />   */}
         {neo.map(rock => {
           return (
            <div key={rock.id}>

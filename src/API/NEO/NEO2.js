@@ -3,16 +3,16 @@ import React from "react";
 
 // import classNames from 'classnames';
 
-import NEOKey from "./NEOKey"
+// import NEOKey from "./NEOKey"
 import "./NEO.css"
 
 // function for today so that it automatically updates the site
 
-var today = new Date()
-var dd = String(today.getUTCDate()).padStart(2, '0');
-var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-today = yyyy + '-' + mm + '-' + dd;
+// var today = new Date()
+// var dd = String(today.getUTCDate()).padStart(2, '0');
+// var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
+// var yyyy = today.getFullYear();
+// today = yyyy + '-' + mm + '-' + dd;
 
 
 // end of today function
@@ -42,8 +42,8 @@ function NEO2() {
   return (
     <div className="body">
       <div className="container">
-        <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {today}</h1>        
-          <NEOKey />  
+        <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  TODAY</h1>        
+ 
         {/* {neo.map(rock => {
           return (
            <div key={rock.id}>
