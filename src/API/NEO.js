@@ -27,6 +27,7 @@ const KEY = process.env.REACT_APP_KEY;
 
 function NEO() {
   const [neo, setNeo] = useState([]);
+  console.log(neo)
   const [date, setDate] = useState(today)
 
   const handleSubmit = e => {
@@ -50,7 +51,7 @@ function NEO() {
       <div className="container">
         <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {date}</h1>        
         <NEOKey />  
-        <label htmlFor="date">
+        {/* <label htmlFor="date">
          <h3 className="prompter">Select a Date</h3>
          <select name="date" 
           onChange={e => handleSubmit(e)}
@@ -64,7 +65,7 @@ function NEO() {
             <option value={fivedaysaftertomorrow}>{fivedaysaftertomorrow}</option> 
             <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option> 
         </select>
-      </label>
+      </label> */}
         {neo.map(rock => {
           return (
            <div className="results" key={rock.id}>
