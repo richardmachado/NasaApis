@@ -37,7 +37,7 @@ function NEO() {
     axios
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
-        // console.log(response.data.near_earth_objects)
+        console.log(response.data.near_earth_objects)
         setNeo(response.data.near_earth_objects[date])
       })
       .catch(err => {
