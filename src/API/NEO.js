@@ -6,23 +6,20 @@ import classNames from 'classnames';
 import NEOKey from "./NEOKey"
 import "./NEO.css"
 
-var today = moment().utc(true).format("YYYY-MM-DD");
-console.log(today)
-var tomorrow = moment().utc(true).add(1, 'd').format("YYYY-MM-DD");
-var dayaftertomorrow = moment().utc(true).add(2, 'd').format("YYYY-MM-DD");
-var twodaysaftertomorrow = moment().utc(true).add(3, 'd').format("YYYY-MM-DD");
-var threedaysaftertomorrow = moment().utc(true).add(4, 'd').format("YYYY-MM-DD");
-var fourdaysaftertomorrow = moment().utc(true).add(5, 'd').format("YYYY-MM-DD");
-var fivedaysaftertomorrow = moment().utc(true).add(6, 'd').format("YYYY-MM-DD");
-var sixdaysaftertomorrow = moment().utc(true).add(7, 'd').format("YYYY-MM-DD");
+var today = moment().utc().format("YYYY-MM-DD");
+var tomorrow = moment().utc().add(1, 'd').format("YYYY-MM-DD");
+var dayaftertomorrow = moment().utc().add(2, 'd').format("YYYY-MM-DD");
+var twodaysaftertomorrow = moment().utc().add(3, 'd').format("YYYY-MM-DD");
+var threedaysaftertomorrow = moment().utc().add(4, 'd').format("YYYY-MM-DD");
+var fourdaysaftertomorrow = moment().utc().add(5, 'd').format("YYYY-MM-DD");
+var fivedaysaftertomorrow = moment().utc().add(6, 'd').format("YYYY-MM-DD");
+var sixdaysaftertomorrow = moment().utc().add(7, 'd').format("YYYY-MM-DD");
 
 // function to add commas to really large numbers
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
-
 
 // secret NASA Key
 const KEY = process.env.REACT_APP_KEY;
@@ -39,7 +36,7 @@ function NEO() {
     axios
       .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
       .then(response => {
-        console.log(response.data.near_earth_objects)
+        // console.log(response.data.near_earth_objects)
         setNeo(response.data.near_earth_objects[date])
       })
       .catch(err => {
