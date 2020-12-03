@@ -1,9 +1,9 @@
 .body{
-    background-color:black;
-    /* background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    opacity: 80%; */
+  background-color:black;
+  background-image: url("./asteroid-background.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .size {

@@ -47,8 +47,7 @@ function NEO() {
   return (
     <div className="body">
       <div className="container">
-        <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {date}</h1>        
-        <NEOKey />  
+        <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {date}</h1>      
         <label htmlFor="date">
          <h3 className="prompter">Select a Date</h3>
          <select name="date" 
@@ -64,6 +63,8 @@ function NEO() {
             <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option> 
         </select>
       </label>
+        <NEOKey />  
+
         {neo.map(rock => {
           return (
            <div className="results" key={rock.id}>
@@ -87,12 +88,7 @@ function NEO() {
                 <span> </span>miles
                 </p>
               }
-   
-      
-                  
-                
-                
-   
+
                 <p className="size">
                 Relative Velocity : {numberWithCommas(Math.round(rock.close_approach_data[0].relative_velocity.miles_per_hour))}
                     <span> </span>miles per hour
