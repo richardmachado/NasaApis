@@ -5,7 +5,7 @@
 }
 
 .top-box {
-  background-color:#b7410e;
+  background-color:#997a00;
 }
 
 p {
@@ -32,3 +32,7 @@ p {
   color:black;
 }
 
+.image {
+  height:500px;
+  width:500px;
+}

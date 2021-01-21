@@ -51,9 +51,6 @@ class App extends Component {
       })
   }
 
-  
-
-
   render() {
     // Style for header
     const headerStyle = {

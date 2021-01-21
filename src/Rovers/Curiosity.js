@@ -26,16 +26,13 @@ function Curiosity () {
 
     const handleSubmit = e => {
       setCamera(e.target.value);
-
     }
     
     useEffect(() => {
-      
     axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${day}&camera=${camera}&api_key=${KEY}`)
           .then(response => {
           console.log(response.data.photos);
-          setMars(response.data.photos);
-         
+          setMars(response.data.photos); 
         })
         .catch(err => {
           console.log(err);
@@ -47,11 +44,9 @@ function Curiosity () {
         css={override}
         size={150}
         color={"#123abc"}
-       
           />
            </div>;
     }
-  
     return (
       <div className="mars">
         <div className="top-box">
@@ -93,7 +88,8 @@ function Curiosity () {
           
          <p className="prompt">Date = {photos.earth_date}</p>
          </div>
-       })} 
+       })}
+  
       </div>
     );
   }

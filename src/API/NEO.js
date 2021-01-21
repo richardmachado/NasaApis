@@ -42,59 +42,83 @@ function NEO() {
       .catch(err => {
         console.log(err);
       });
-  }, [date]);
+  }, [date]); 
 
   return (
     <div className="body">
       <div className="container">
-        <h1 className="display-4 my3"><span className="text-dark"> Near Earth Objects </span>  for  {date}</h1>      
+        <h1 className="display-4 my3">
+          <span className="text-dark"> Near Earth Objects </span> for {date}
+        </h1>
         <label htmlFor="date">
-         <h3 className="prompter">Select a Date</h3>
-         <select name="date" 
-          onChange={e => handleSubmit(e)}
-          form="date">
-            <option value={today}>{today}</option>  
-            <option value={tomorrow}>{tomorrow}</option>
-            <option value={dayaftertomorrow}>{dayaftertomorrow}</option>
-            <option value={twodaysaftertomorrow}>{twodaysaftertomorrow}</option> 
-            <option value={threedaysaftertomorrow}>{threedaysaftertomorrow}</option> 
-            <option value={fourdaysaftertomorrow}>{fourdaysaftertomorrow}</option> 
-            <option value={fivedaysaftertomorrow}>{fivedaysaftertomorrow}</option> 
-            <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option> 
-        </select>
-      </label>
-        <NEOKey />  
+          <h3 className="prompter">Select a Date</h3>
+            <select name="date" onChange={(e) => handleSubmit(e)} form="date">
+              <option value={today}>{today}</option>
+              <option value={tomorrow}>{tomorrow}</option>
+              <option value={dayaftertomorrow}>{dayaftertomorrow}</option>
+              <option value={twodaysaftertomorrow}>{twodaysaftertomorrow}</option>
+              <option value={threedaysaftertomorrow}>{threedaysaftertomorrow}</option>
+              <option value={fourdaysaftertomorrow}>{fourdaysaftertomorrow}</option>
+              <option value={fivedaysaftertomorrow}>{fivedaysaftertomorrow}</option>
+              <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option>
+            </select>
+        </label>
+        <NEOKey />
 
-        {neo.map(rock => {
+        {neo.map((rock) => {
           return (
-           <div className="results" key={rock.id}>
-            <h4 className="mb3" key={rock.name} >Object Name: <span className={classNames({
-              'text-danger': !rock.name,
-              'text-success': rock.name
-            })}>{rock.name}</span></h4> 
+            <div className="results" key={rock.id}>
+              <h4 className="mb3" key={rock.name}>
+                Object Name:{" "}
+                <span
+                  className={classNames({
+                    "text-danger": !rock.name,
+                    "text-success": rock.name,
+                  })}
+                >
+                  {rock.name}
+                </span>
+              </h4>
               <p className="size">
-              Size(Maximum Diameter): {Math.round(((rock.estimated_diameter.feet.estimated_diameter_max)) * 100) / 100} feet
-              </p> 
-               <p className="size">
-                Closest Approach Date: {rock.close_approach_data[0].close_approach_date}
+                Size(Maximum Diameter): <span> </span>
+                {Math.round(
+                  rock.estimated_diameter.feet.estimated_diameter_max * 100
+                ) / 100}<span> </span> feet
+              </p>
+              <p className="size">
+                Closest Approach Date:<span> </span>
+                {rock.close_approach_data[0].close_approach_date}
+              </p>
+              {rock.close_approach_data[0].miss_distance.miles < 500000 ? (
+                <p className="size" style={{ color: "red" }}>
+                  Miss Distance : {" "}
+                  {numberWithCommas(
+                    Math.round(rock.close_approach_data[0].miss_distance.miles)
+                  )}
+                  <span> </span>miles
                 </p>
-              {
-                rock.close_approach_data[0].miss_distance.miles < 500000 ? <p className="size" style={{color:"red"}}>
-                Miss Distance : {numberWithCommas(Math.round(rock.close_approach_data[0].miss_distance.miles))}
-                <span> </span>miles
+              ) : (
+                <p className="size" style={{ color: "white" }}>
+                  Miss Distance :{" "}
+                  {numberWithCommas(
+                    Math.round(rock.close_approach_data[0].miss_distance.miles)
+                  )}
+                  <span> </span>miles
                 </p>
-                :<p className="size" style={{color:"white"}}>
-                Miss Distance : {numberWithCommas(Math.round(rock.close_approach_data[0].miss_distance.miles))}
-                <span> </span>miles
-                </p>
-              }
+              )}
 
-                <p className="size">
-                Relative Velocity : {numberWithCommas(Math.round(rock.close_approach_data[0].relative_velocity.miles_per_hour))}
-                    <span> </span>miles per hour
-                </p>
-            </div>                   
-  )})}
+              <p className="size">
+                Relative Velocity :{" "}
+                {numberWithCommas(
+                  Math.round(
+                    rock.close_approach_data[0].relative_velocity.miles_per_hour
+                  )
+                )}
+                <span> </span>miles per hour
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
