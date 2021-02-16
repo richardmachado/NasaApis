@@ -49,44 +49,51 @@ function Opportunity () {
   
     return (
       <div className="mars">
-            <div className="top-box">
-  <h1 className="title">Mars Opportunity Rover Photos</h1>
-  <p className="header">This API is designed to collect image data gathered by NASA's Opportunity rover on Mars 
+        <div className="top-box">
+          <h1 className="title">Mars Opportunity Rover Photos</h1>
+          {/* <p className="header">This API is designed to collect image data gathered by NASA's Opportunity rover on Mars 
       and make it more easily available to other developers, educators, and citizen scientists. 
-    </p>
+    </p> */}
 
-      <label className= "prompt" htmlFor="day">
-          Enter a number - 0 is 1st day on Mars, etc <span>  </span>
-        <input type="text" 
-        onChange={event => handleChange(event)}
-        placeholder="day"
-        name ="day">
-        </input>
-      </label>
+          <label className="prompt" htmlFor="day">
+            Enter a number - 0 is 1st day on Mars, etc <span> </span>
+            <input
+              type="text"
+              onChange={(event) => handleChange(event)}
+              placeholder="day"
+              name="day"
+            ></input>
+          </label>
 
-       <label className="prompt" htmlFor="camera">
-             Select a camera
-         <select name="camera" 
-          onChange={e => handleSubmit(e)}
-          form="camera">
-          <option value="RHAZ">Rear Hazard</option>
-          <option value="FHAZ ">Front Hazard</option>
-          <option value="NAVCAM">Navigation Camera</option>
-          <option value="PANCAM">Panoramic Camera</option>
-          <option value="MINITES">MiniTES</option>
-        </select>
-      </label>
-        
-      <p className="blank-response"> if any entry gives a blank page, that means no photos are available that day</p>
-      </div>
-       {mars.map(photos => {
-         
-        return  <div key={photos.id}>
-          <img className="image" src ={photos.img_src} alt ="img"/>
+          <label className="prompt" htmlFor="camera">
+            Select a camera
+            <select
+              name="camera"
+              onChange={(e) => handleSubmit(e)}
+              form="camera"
+            >
+              <option value="RHAZ">Rear Hazard</option>
+              <option value="FHAZ ">Front Hazard</option>
+              <option value="NAVCAM">Navigation Camera</option>
+              <option value="PANCAM">Panoramic Camera</option>
+              <option value="MINITES">MiniTES</option>
+            </select>
+          </label>
 
-         <p className="prompt">Date = {photos.earth_date}</p>
-         </div>
-       })} 
+          <p className="blank-response">
+            {" "}
+            if any entry gives a blank page, no photos are available that day
+          </p>
+        </div>
+        {mars.map((photos) => {
+          return (
+            <div key={photos.id}>
+              <img className="image" src={photos.img_src} alt="img" />
+
+              <p className="prompt">Date = {photos.earth_date}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }

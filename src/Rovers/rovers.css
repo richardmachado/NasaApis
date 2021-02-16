@@ -30,6 +30,7 @@ p {
 .blank-response {
   font-size:2rem;
   color:black;
+  background-color: yellow;
 }
 
 .image {
