@@ -12,6 +12,7 @@ import NEO from '../API/NEO'
 import Curiosity from '../Rovers/Curiosity';
 import Opportunity from '../Rovers/Opportunity'
 import Spirit from '../Rovers/Spirit'
+import Perseverance from '../Rovers/Perseverance'
 
 import MarsWeather from '../API/MarsWeather/MarsWeather'
 
@@ -42,6 +43,9 @@ function Navi () {
               </NavLink>
               <NavLink tag={Link} to="/Spirit">
                 Spirit
+              </NavLink>
+              <NavLink tag={Link} to="/Perseverance">
+                Perseverance
               </NavLink>
               <NavLink tag={Link} to="/MarsWeather">
                 Mars Weather
@@ -75,7 +79,10 @@ function Navi () {
           </Route>
           <Route path="/Spirit">
             <Spirit />
-          </Route>{" "}
+          </Route>
+                    <Route path="/Perseverance">
+            <Perseverance />
+          </Route>
           <Route path="/MarsWeather">
             <MarsWeather />
           </Route>
