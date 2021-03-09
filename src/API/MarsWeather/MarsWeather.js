@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import PresentDay from './PresentDay'
+import PresentDay from "./PresentDay";
 import "./styles.css";
 
 const KEY = process.env.REACT_APP_KEY;
 
-const URL =
-    `https://api.nasa.gov/insight_weather/?api_key=${KEY}&feedtype=json&ver=1.0`;
-  
+const URL = `https://api.nasa.gov/insight_weather/?api_key=${KEY}&feedtype=json&ver=1.0`;
+
 function MarsWeather() {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState({
@@ -17,14 +16,11 @@ function MarsWeather() {
     season: "",
     solDate: "",
     avgPressure: "",
-  
   });
 
   function getWeather() {
-      return fetch(URL)
-          .then((res) => res.json()
-            
-    )
+    return fetch(URL)
+      .then((res) => res.json())
       .then((data) => {
         const { sol_keys, validity_checks, ...solData } = data;
 
@@ -34,11 +30,11 @@ function MarsWeather() {
 
             return {
               sol: sol,
-            // maxTemp: data.AT.mx,
-            // minTemp: data.AT.mn,
-            date: new Date(data.First_UTC),
-            season: data.Season,
-            avgPressure: data.PRE.av,
+              // maxTemp: data.AT.mx,
+              // minTemp: data.AT.mn,
+              date: new Date(data.First_UTC),
+              season: data.Season,
+              avgPressure: data.PRE.av,
             };
           } else {
             return null;

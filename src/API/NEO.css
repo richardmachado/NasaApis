@@ -1,5 +1,5 @@
-.body{
-  background-color:black;
+.body {
+  background-color: black;
   background-image: url("./asteroid-background.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12,10 +12,10 @@
 }
 
 .prompter {
-  color:white
+  color: white;
 }
 
-.results{
+.results {
   margin-bottom: 7rem;
-  color:white
+  color: white;
 }

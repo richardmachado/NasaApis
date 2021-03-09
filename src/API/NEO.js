@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from 'moment';
-import classNames from 'classnames';
+import moment from "moment";
+import classNames from "classnames";
 
-import NEOKey from "./NEOKey"
-import "./NEO.css"
+import NEOKey from "./NEOKey";
+import "./NEO.css";
 
 var today = moment().utc().format("YYYY-MM-DD");
-var tomorrow = moment().utc().add(1, 'd').format("YYYY-MM-DD");
-var dayaftertomorrow = moment().utc().add(2, 'd').format("YYYY-MM-DD");
-var twodaysaftertomorrow = moment().utc().add(3, 'd').format("YYYY-MM-DD");
-var threedaysaftertomorrow = moment().utc().add(4, 'd').format("YYYY-MM-DD");
-var fourdaysaftertomorrow = moment().utc().add(5, 'd').format("YYYY-MM-DD");
-var fivedaysaftertomorrow = moment().utc().add(6, 'd').format("YYYY-MM-DD");
-var sixdaysaftertomorrow = moment().utc().add(7, 'd').format("YYYY-MM-DD");
+var tomorrow = moment().utc().add(1, "d").format("YYYY-MM-DD");
+var dayaftertomorrow = moment().utc().add(2, "d").format("YYYY-MM-DD");
+var twodaysaftertomorrow = moment().utc().add(3, "d").format("YYYY-MM-DD");
+var threedaysaftertomorrow = moment().utc().add(4, "d").format("YYYY-MM-DD");
+var fourdaysaftertomorrow = moment().utc().add(5, "d").format("YYYY-MM-DD");
+var fivedaysaftertomorrow = moment().utc().add(6, "d").format("YYYY-MM-DD");
+var sixdaysaftertomorrow = moment().utc().add(7, "d").format("YYYY-MM-DD");
 
 // function to add commas to really large numbers
 
@@ -26,23 +26,25 @@ const KEY = process.env.REACT_APP_KEY;
 
 function NEO() {
   const [neo, setNeo] = useState([]);
-  const [date, setDate] = useState(today)
+  const [date, setDate] = useState(today);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     setDate(e.target.value);
-  }
+  };
 
   useEffect(() => {
     axios
-      .get(`https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`)   
-      .then(response => {
+      .get(
+        `https://api.nasa.gov/neo/rest/v1/feed/?date=${today}?detailed=true&api_key=${KEY}`
+      )
+      .then((response) => {
         // console.log(response.data.near_earth_objects)
-        setNeo(response.data.near_earth_objects[date])
+        setNeo(response.data.near_earth_objects[date]);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
-  }, [date]); 
+  }, [date]);
 
   return (
     <div className="body">
@@ -52,16 +54,22 @@ function NEO() {
         </h1>
         <label htmlFor="date">
           <h3 className="prompter">Select a Date</h3>
-            <select name="date" onChange={(e) => handleSubmit(e)} form="date">
-              <option value={today}>{today}</option>
-              <option value={tomorrow}>{tomorrow}</option>
-              <option value={dayaftertomorrow}>{dayaftertomorrow}</option>
-              <option value={twodaysaftertomorrow}>{twodaysaftertomorrow}</option>
-              <option value={threedaysaftertomorrow}>{threedaysaftertomorrow}</option>
-              <option value={fourdaysaftertomorrow}>{fourdaysaftertomorrow}</option>
-              <option value={fivedaysaftertomorrow}>{fivedaysaftertomorrow}</option>
-              <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option>
-            </select>
+          <select name="date" onChange={(e) => handleSubmit(e)} form="date">
+            <option value={today}>{today}</option>
+            <option value={tomorrow}>{tomorrow}</option>
+            <option value={dayaftertomorrow}>{dayaftertomorrow}</option>
+            <option value={twodaysaftertomorrow}>{twodaysaftertomorrow}</option>
+            <option value={threedaysaftertomorrow}>
+              {threedaysaftertomorrow}
+            </option>
+            <option value={fourdaysaftertomorrow}>
+              {fourdaysaftertomorrow}
+            </option>
+            <option value={fivedaysaftertomorrow}>
+              {fivedaysaftertomorrow}
+            </option>
+            <option value={sixdaysaftertomorrow}>{sixdaysaftertomorrow}</option>
+          </select>
         </label>
         <NEOKey />
 
@@ -83,7 +91,8 @@ function NEO() {
                 Size(Maximum Diameter): <span> </span>
                 {Math.round(
                   rock.estimated_diameter.feet.estimated_diameter_max * 100
-                ) / 100}<span> </span> feet
+                ) / 100}
+                <span> </span> feet
               </p>
               <p className="size">
                 Closest Approach Date:<span> </span>
@@ -91,7 +100,7 @@ function NEO() {
               </p>
               {rock.close_approach_data[0].miss_distance.miles < 500000 ? (
                 <p className="size" style={{ color: "red" }}>
-                  Miss Distance : {" "}
+                  Miss Distance :{" "}
                   {numberWithCommas(
                     Math.round(rock.close_approach_data[0].miss_distance.miles)
                   )}

@@ -1,15 +1,15 @@
-import React from 'react'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import React from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const buttonPosition = {
-  display: 'block',
-  marginTop: '1.5rem',
-  marginBottom: '1.5rem'
-}
+  display: "block",
+  marginTop: "1.5rem",
+  marginBottom: "1.5rem",
+};
 const buttonStyle = {
-  backgroundColor: 'white'
-}
+  backgroundColor: "white",
+};
 const DateInput = (props) => (
   <div className="text-center">
     <p>
@@ -30,5 +30,5 @@ const DateInput = (props) => (
       </button>
     </div>
   </div>
-)
-export default DateInput
+);
+export default DateInput;

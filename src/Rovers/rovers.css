@@ -1,39 +1,38 @@
-.mars{
-    background-image: url('./mars-unsplash.jpeg');
-    /* background-repeat: repeat; */
-    width: 100%;
+.mars {
+  background-image: url("./mars-unsplash.jpeg");
+  /* background-repeat: repeat; */
+  width: 100%;
 }
 
 .top-box {
-  background-color:#997a00;
+  background-color: #997a00;
 }
 
 p {
-  color:white
+  color: white;
 }
 
 .title {
-  color:black;
+  color: black;
 }
 
 .prompt {
-  color:black;
+  color: black;
   font-size: 2rem;
-
 }
 
 .header {
   font-size: 2.5rem;
-  color:black;
+  color: black;
 }
 
 .blank-response {
-  font-size:2rem;
-  color:black;
+  font-size: 2rem;
+  color: black;
   background-color: yellow;
 }
 
 .image {
-  height:500px;
-  width:500px;
+  height: 500px;
+  width: 500px;
 }
