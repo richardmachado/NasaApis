@@ -42,9 +42,7 @@ class App extends Component {
   };
   // lifecycle method that render photo before app renders
   componentDidMount() {
-    fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=X7831OHO7jNbCUFp6ZquUbFjI2txHRDvsbay1fU4`
-    )
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${KEY}`)
       .then((response) => {
         return response.json();
       })
