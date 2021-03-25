@@ -14,7 +14,7 @@ import Opportunity from "../Rovers/Opportunity";
 import Spirit from "../Rovers/Spirit";
 import Perseverance from "../Rovers/Perseverance";
 
-import MarsWeather from "../API/MarsWeather/MarsWeather";
+// import MarsWeather from "../API/MarsWeather/MarsWeather";
 
 function Navi() {
   return (
@@ -82,9 +82,9 @@ function Navi() {
         <Route path="/Perseverance">
           <Perseverance />
         </Route>
-        <Route path="/MarsWeather">
+        {/* <Route path="/MarsWeather">
           <MarsWeather />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );
