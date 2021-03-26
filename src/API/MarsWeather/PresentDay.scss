@@ -1,0 +1,168 @@
+@import "./variables";
+
+.present-day {
+  color: rgb(54, 41, 41);
+  padding: 4em;
+  font-weight: 500;
+  background: $primary-background;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow: hidden;
+  z-index: 0;
+
+  b {
+    font-weight: 900;
+  }
+
+  &--section-one {
+    padding: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    position: relative;
+    height: 60vh;
+    width: 40vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 50px;
+    background: $primary-background;
+    box-shadow: 15px 15px 30px $shadow-one, -15px -15px 30px $shadow-two;
+  }
+
+  .section-one {
+    &__sol {
+      font-size: 3em;
+      padding: 0.2em;
+      padding-left: 0;
+      // font-size: clamp(3rem, 2.4735rem, 5rem);
+      // font-size: clamp(1rem, -0.875rem + 8.333333vw, 3.5rem);
+
+      //min font size - 3rem
+      //max font size - 5rem
+      //min vp width - 18.75rem
+      //max vp width - 75rem
+      //slope = 2/56.25 =0.03
+      //yintersection = 3-0.5625 = 2.4735
+      //preffered val = yintersectio rem + slope * 100 vw = 2.4735rem + 3vw
+    }
+
+    &__date {
+      font-size: 3em;
+      opacity: 0.5;
+      // margin-top: -10px;
+    }
+
+    &__season {
+      font-size: 1.5em;
+      text-align: left;
+      letter-spacing: 0.3em;
+    }
+  }
+
+  &--part-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+    width: 35vw;
+    line-height: 2rem;
+  }
+
+  &--section-two,
+  &--section-three {
+    padding: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40vh;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem;
+    font-size: 1.25rem;
+    border-radius: 30px;
+    background: $primary-background;
+    box-shadow: 15px 15px 30px$shadow-one, -15px -15px 30px $shadow-two;
+    z-index: 999;
+  }
+
+  // @media screen and (max-width: 768px) {
+  //   flex-direction: column;
+
+  //   &--section-one {
+  //     width: 80vw;
+  //     height: 40vh;
+  //   }
+
+  //   .section-one {
+  //     text-align: center;
+  //     &__sol {
+  //       font-size: 5em;
+  //       padding: 0.2em;
+  //       padding-left: 0;
+  //     }
+
+  //     &__date {
+  //       font-size: 3em;
+  //       opacity: 0.5;
+  //     }
+
+  //     &__season {
+  //       font-size: 1.5em;
+  //       text-align: left;
+  //       letter-spacing: 0.3em;
+  //       text-align: center;
+  //     }
+  //   }
+
+  //   &--part-right {
+  //     margin-top: 3em;
+  //     flex-direction: row;
+  //     justify-content: space-evenly;
+  //     width: 80vw;
+  //     height: 100%;
+  //   }
+
+  //   &--section-two,
+  //   &--section-three {
+  //     height: 20rem;
+  //     width: 30rem;
+  //     justify-content: space-evenly;
+  //   }
+  // }
+
+  // @media screen and (max-width: 550px) {
+  //   &--section-one {
+  //     width: 80vw;
+  //     height: 30vh;
+
+  //     .section-one {
+  //       &__sol {
+  //         font-size: 3rem;
+  //         padding: 0.2em;
+  //         padding-left: 0;
+  //       }
+
+  //       &__date {
+  //         font-size: 2em;
+  //         opacity: 0.5;
+  //       }
+  //     }
+  //   }
+
+  //   &--part-right {
+  //     margin-top: 2em;
+  //     flex-direction: row;
+  //     justify-content: space-evenly;
+  //     width: 80vw;
+  //     height: 100%;
+  //   }
+
+  //   &--section-two,
+  //   &--section-three {
+  //     justify-content: space-evenly;
+  //     font-size: 1.125rem;
+  //   }
+  // }
+}

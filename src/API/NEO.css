@@ -1,0 +1,21 @@
+.body {
+  background-color: black;
+  background-image: url("./asteroid-background.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.size {
+  font-size: 1.5rem;
+  color: #ffe6e6;
+}
+
+.prompter {
+  color: white;
+}
+
+.results {
+  margin-bottom: 7rem;
+  color: white;
+}

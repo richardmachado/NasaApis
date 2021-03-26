@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.homepage {
+  background-image: url("./launch-unsplash.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem;
+}
