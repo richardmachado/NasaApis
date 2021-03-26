@@ -81,7 +81,7 @@ function Perseverance() {
             <option value="SKYCAM">MEDA Skycam</option>
            
           </select>
-        </label> */}
+        </label> 
 
         <p className="blank-response">
           {" "}
