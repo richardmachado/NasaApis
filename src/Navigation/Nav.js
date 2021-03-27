@@ -4,7 +4,7 @@ import { NavLink } from "reactstrap";
 
 import { Switch, Route, Link } from "react-router-dom";
 
-import Home from "../Home";
+// import Home from "../Home";
 import Photo from "../API/POTD";
 // import EPIC from '../API/EPIC';
 import NEO from "../API/NEO";
@@ -46,9 +46,9 @@ function Navi() {
             <NavLink tag={Link} to="/Perseverance">
               Perseverance
             </NavLink>
-            <NavLink tag={Link} to="/MarsWeather">
+            {/* <NavLink tag={Link} to="/MarsWeather">
               Mars Weather
-            </NavLink>
+            </NavLink> */}
           </Nav>
           <Nav>
             <Nav.Link href="http://richardmachado.dev">
@@ -59,7 +59,7 @@ function Navi() {
       </Navbar>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Photo />
         </Route>
         <Route path="/POTD">
           <Photo />

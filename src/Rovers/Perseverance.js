@@ -17,7 +17,7 @@ const KEY = process.env.REACT_APP_KEY;
 function Perseverance() {
   const [mars, setMars] = useState(0);
   const [day, setDay] = useState(1);
-  const [camera, setCamera] = useState("NAVCAM_LEFT");
+  const [camera, setCamera] = useState("REAR_HAZCAM_LEFT");
 
   const handleChange = (event) => {
     setDay(event.target.value);
@@ -30,8 +30,6 @@ function Perseverance() {
       .get(
         // `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=${KEY}`
         `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=${day}&camera=${camera}&api_key=${KEY}`
-
-
       )
       .then((response) => {
         console.log(response.data);
@@ -57,7 +55,7 @@ function Perseverance() {
   rover on Mars and make it more easily available to other developers, educators, and citizen 
   scientists.</p> */}
 
-         <label className="prompt" htmlFor="day">
+        <label className="prompt" htmlFor="day">
           Enter a number - 0 is 1st day on Mars, etc<span> </span>
           <input
             type="text"
@@ -70,23 +68,29 @@ function Perseverance() {
         <label className="prompt" htmlFor="camera">
           Select a camera
           <select name="camera" onChange={(e) => handleSubmit(e)} form="camera">
-            <option value="NAVCAM_LEFT">Navcam Left</option>
-            <option value="NAVCAM_RIGHT">Navcam Right</option>
             <option value="REAR_HAZCAM_LEFT">REAR HAZCAM LEFT</option>
             <option value="REAR_HAZCAM_RIGHT">REAR HAZCAM RIGHT</option>
-            <option value="FRONT_HAZCAM_RIGHT_A">Front Hazard Avoidance Camera - Right</option>
-            <option value="FRONT_HAZCAM_LEFT_A">Front Hazard Avoidance Camera - Left</option>
-            {/* <option value="SHERLOC">Sherloc</option> */}
-
+            <option value="NAVCAM_LEFT">Navcam Left</option>
+            <option value="NAVCAM_RIGHT">Navcam Right</option>
+            <option value="FRONT_HAZCAM_RIGHT_A">
+              Front Hazard Avoidance Camera - Right
+            </option>
+            <option value="FRONT_HAZCAM_LEFT_A">
+              Front Hazard Avoidance Camera - Left
+            </option>
             <option value="SKYCAM">MEDA Skycam</option>
-           
+            {/* missing camera <option value="SHERLOC">Sherloc</option> */}
+            {/* missing camera <option value="WATSON">WATSON</option> */}
+            {/* missing camera <option value="SUPERCAM">SUPERCAM</option> */}
+            {/* missing camera <option value="CACHECAM">CACHECAM</option> */}
+            {/* missing camera <option value="MASTCAM-Z-RIGHT">MASTCAM-Z-RIGHT</option> */}
+            {/* missing camera <option value="SMASTCAM-Z-LEFT">MASTCAM-Z-LEFT</option> */}
+            {/* missing camera <option value="Remote Micro Imager">Remote Micro Imager</option> */}
+            {/* missing camera <option value="PIXL">PIXL</option> */}
           </select>
-        </label> 
+        </label>
 
-        <p className="blank-response">
-          {" "}
-         Not all cameras are listed
-        </p> 
+        <p className="blank-response"> Not all cameras are listed</p>
       </div>
       {mars.map((photos) => {
         return (
