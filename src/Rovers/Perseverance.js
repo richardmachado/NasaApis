@@ -28,7 +28,7 @@ function Perseverance() {
   useEffect(() => {
     axios
       .get(
-        // `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=${KEY}`
+        // `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY`
         `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=${day}&camera=${camera}&api_key=${KEY}`
       )
       .then((response) => {
@@ -73,18 +73,18 @@ function Perseverance() {
             <option value="NAVCAM_LEFT">Navcam Left</option>
             <option value="NAVCAM_RIGHT">Navcam Right</option>
             <option value="FRONT_HAZCAM_RIGHT_A">
-              Front Hazard Avoidance Camera - Right
+              Front Hazcam - Right
             </option>
             <option value="FRONT_HAZCAM_LEFT_A">
-              Front Hazard Avoidance Camera - Left
+              Front Hazcam - Left
             </option>
             <option value="SKYCAM">MEDA Skycam</option>
-            {/* missing camera <option value="SHERLOC">Sherloc</option> */}
-            {/* missing camera <option value="WATSON">WATSON</option> */}
+            missing camera <option value="SHERLOC_WATSON">SHERLOC WATSON</option>
+
             {/* missing camera <option value="SUPERCAM">SUPERCAM</option> */}
             {/* missing camera <option value="CACHECAM">CACHECAM</option> */}
             {/* missing camera <option value="MASTCAM-Z-RIGHT">MASTCAM-Z-RIGHT</option> */}
-            {/* missing camera <option value="SMASTCAM-Z-LEFT">MASTCAM-Z-LEFT</option> */}
+            {/* missing camera <option value="MASTCAM-Z-LEFT">MASTCAM-Z-LEFT</option> */}
             {/* missing camera <option value="Remote Micro Imager">Remote Micro Imager</option> */}
             {/* missing camera <option value="PIXL">PIXL</option> */}
           </select>
