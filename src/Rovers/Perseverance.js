@@ -94,12 +94,17 @@ function Perseverance() {
           </select>
         </label>
 
-        <p className="blank-response"> Not all cameras are listed</p>
+        <p className="blank-response">
+          {" "}
+          If page is blank, no photos available that day
+        </p>
       </div>
       {mars.map((photos) => {
         return (
           <div key={photos.id}>
-            <img className="image" src={photos.img_src} alt="img" />
+            <a href={photos.img_src} target="_blank" rel="noopener noreferrer">
+              <img className="image" src={photos.img_src} alt="img" />
+            </a>
             <p className="prompt">Date = {photos.earth_date}</p>
           </div>
         );
