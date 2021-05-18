@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import "../App.css";
+import "./Carousel.scss";
 import "./rovers.css";
 
 import ClipLoader from "react-spinners/ClipLoader";
@@ -11,6 +18,15 @@ const override = css`
   margin: 0 auto;
   border-color: red;
 `;
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slideToShow: 3,
+  slidesToScroll: 1,
+  cssEase: "linear",
+};
 
 const KEY = process.env.REACT_APP_KEY;
 
@@ -50,10 +66,6 @@ function Opportunity() {
     <div className="mars">
       <div className="top-box">
         <h1 className="title">Mars Opportunity Rover Photos</h1>
-        {/* <p className="header">This API is designed to collect image data gathered by NASA's Opportunity rover on Mars 
-      and make it more easily available to other developers, educators, and citizen scientists. 
-    </p> */}
-
         <label className="prompt" htmlFor="day">
           Enter a number - 0 is 1st day on Mars, etc <span> </span>
           <input
@@ -80,17 +92,31 @@ function Opportunity() {
           if any entry gives a blank page, no photos are available that day
         </p>
       </div>
-      {mars.map((photos) => {
-        return (
-          <div key={photos.id}>
-            <a href={photos.img_src} target="_blank" rel="noopener noreferrer">
-              <img className="image" src={photos.img_src} alt="img" />
-            </a>
-
-            <p className="prompt">Date = {photos.earth_date}</p>
-          </div>
-        );
-      })}
+      <div className="container mt-5 carousel">
+        <Slider {...settings}>
+          {mars.map((photos) => {
+            return (
+              <div className="card-wrapper">
+                <div className="card">
+                  <div className="card-image">
+                    <a
+                      href={photos.img_src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={photos.img_src} alt="nasa" />
+                    </a>
+                    <div>
+                      Date: {photos.earth_date} - click on image to open in new
+                      tab
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     </div>
   );
 }
