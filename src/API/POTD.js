@@ -20,6 +20,7 @@ class App extends Component {
     // generates random date and passes it into our
     // changeDate function which also updates state and
     // fetches a photo again
+    // first available date is 06/16/1995
     let ranDate = this.randomDate(new Date(1995, 0o6 - 1, 16), new Date());
     this.changeDate(ranDate);
   };
