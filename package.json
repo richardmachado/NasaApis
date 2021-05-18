@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/core": "^10.0.35",
+    "@emotion/core": "^10.1.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -19,8 +19,10 @@
     "react-moment": "^1.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-slick": "^0.28.1",
     "react-spinners": "^0.8.1",
     "reactstrap": "^8.2.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.4.1"
   },
   "scripts": {

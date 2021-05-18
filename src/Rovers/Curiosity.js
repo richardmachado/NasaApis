@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import "../App.css";
+import "./Carousel.scss";
 import "./rovers.css";
 
 import ClipLoader from "react-spinners/ClipLoader";
@@ -12,6 +18,15 @@ const override = css`
   margin: 0 auto;
   border-color: red;
 `;
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slideToShow: 3,
+  slidesToScroll: 1,
+  cssEase: "linear",
+};
 
 const KEY = process.env.REACT_APP_KEY;
 
@@ -34,7 +49,7 @@ function Curiosity() {
         `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${day}&camera=${camera}&api_key=${KEY}`
       )
       .then((response) => {
-        console.log(response.data.photos);
+        // console.log(response.data.photos);
         setMars(response.data.photos);
       })
       .catch((err) => {
@@ -48,54 +63,67 @@ function Curiosity() {
       </div>
     );
   }
+
   return (
-    <div className="mars">
-      <div className="top-box">
-        <h1 className="title">Mars Curiosity Rover Photos</h1>
-        {/* <p className="header">This API is designed to collect image data 
-  gathered by NASA's Curiosity rover on Mars and make it more easily 
-  available to other developers, educators, and citizen scientists. 
- </p> */}
-
-        <label className="prompt" htmlFor="day">
-          Enter a number - 0 is 1st day on Mars, etc <span> </span>
-          <input
-            type="text"
-            onChange={(event) => handleChange(event)}
-            placeholder="day"
-            name="day"
-          ></input>
-        </label>
-
-        <label className="prompt" htmlFor="camera">
-          Select a camera
-          <select name="camera" onChange={(e) => handleSubmit(e)} form="camera">
-            <option value="RHAZ">Rear Hazard</option>
-            <option value="FHAZ ">Front Hazard</option>
-            <option value="MAST">Mast Mounted</option>
-            <option value="CHEMCAM">Chem Cam</option>
-            <option value="MAHLI">Mars Hand Lens Imager</option>
-            <option value="MARDI">Mars Descent Imager</option>
-            <option value="NAVCAM">NAVCAM</option>
-          </select>
-        </label>
-
-        <p className="blank-response">
-          {" "}
-          if any entry gives a blank page, no photos are available that day
-        </p>
+    <div className="body">
+      <div className="mars">
+        <div className="top-box">
+          <h1 className="title">Mars Curiosity Rover Photos</h1>
+          <label className="prompt" htmlFor="day">
+            Enter a number - 0 is 1st day on Mars, etc <span> </span>
+            <input
+              type="text"
+              onChange={(event) => handleChange(event)}
+              placeholder="day"
+              name="day"
+            ></input>
+          </label>
+          <label className="prompt" htmlFor="camera">
+            Select a camera
+            <select
+              name="camera"
+              onChange={(e) => handleSubmit(e)}
+              form="camera"
+            >
+              <option value="RHAZ">Rear Hazard</option>
+              <option value="FHAZ ">Front Hazard</option>
+              <option value="MAST">Mast Mounted</option>
+              <option value="CHEMCAM">Chem Cam</option>
+              <option value="MAHLI">Mars Hand Lens Imager</option>
+              <option value="MARDI">Mars Descent Imager</option>
+              <option value="NAVCAM">NAVCAM</option>
+            </select>
+          </label>
+          <p className="blank-response">
+            if any entry gives a blank page, no photos are available that day
+          </p>
+        </div>
+        <div className="container mt-5 carousel">
+          <Slider {...settings}>
+            {mars.map((photos) => {
+              return (
+                <div className="card-wrapper">
+                  <div className="card">
+                    <div className="card-image">
+                      <a
+                        href={photos.img_src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={photos.img_src} alt="nasa" />
+                      </a>
+                      <div>
+                        Date: {photos.earth_date} - click on image to open in
+                        new tab
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
       </div>
-      {mars.map((photos) => {
-        return (
-          <div key={photos.id}>
-            <a href={photos.img_src} target="_blank" rel="noopener noreferrer">
-              <img className="image" src={photos.img_src} alt="img" />
-            </a>
-
-            <p className="prompt">Date = {photos.earth_date}</p>
-          </div>
-        );
-      })}
     </div>
   );
 }

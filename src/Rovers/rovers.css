@@ -14,11 +14,12 @@ p {
 
 .title {
   color: black;
+  font-size: 2rem;
 }
 
 .prompt {
   color: black;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .header {
@@ -27,7 +28,7 @@ p {
 }
 
 .blank-response {
-  font-size: 2rem;
+  font-size: 1rem;
   color: black;
   background-color: yellow;
 }
