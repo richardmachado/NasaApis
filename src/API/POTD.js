@@ -57,9 +57,13 @@ class App extends Component {
     const headerStyle = {
       textAlign: "center",
     };
+    const box = {
+      height: "1000px",
+      width: "50%"
+    }
     return (
-      <div className="container">
-        <div className="card card-body">
+      <div className={box}>
+        <div>
           <h2 style={headerStyle}>NASA's Astronomy Picture of the Day</h2>
           <p>
             This API incorporates several different components, such as a

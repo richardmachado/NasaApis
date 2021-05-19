@@ -35,7 +35,7 @@ const Photo = (props) => {
     }
   }
   return (
-    <div className="card card-body bg-light">
+    <div className=" bg-light">
       <h4 style={titleStyles}>{props.photo.title}</h4>
 
       {renderContentType()}
