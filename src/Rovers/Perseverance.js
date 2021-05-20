@@ -103,30 +103,30 @@ function Perseverance() {
         </p>
       </div>
       <div className="container mt-5 carousel">
-          <Slider {...settings}>
-            {mars.map((photos) => {
-              return (
-                <div className="card-wrapper">
-                  <div className="card">
-                    <div className="card-image">
-                      <a
-                        href={photos.img_src}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img src={photos.img_src} alt="nasa" />
-                      </a>
-                      <div>
-                        Date: {photos.earth_date} - click on image to open in
-                        new tab
-                      </div>
+        <Slider {...settings}>
+          {mars.map((photos) => {
+            return (
+              <div className="card-wrapper">
+                <div className="card">
+                  <div className="card-image">
+                    <a
+                      href={photos.img_src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={photos.img_src} alt="nasa" />
+                    </a>
+                    <div>
+                      Date: {photos.earth_date} - click on image to open in new
+                      tab
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </Slider>
-        </div>
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     </div>
   );
 }

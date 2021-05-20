@@ -59,8 +59,8 @@ class App extends Component {
     };
     const box = {
       height: "1000px",
-      width: "50%"
-    }
+      width: "50%",
+    };
     return (
       <div className={box}>
         <div>
