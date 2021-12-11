@@ -13,6 +13,21 @@ import "./rovers.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/core";
 
+// start date === 08/06/2012
+
+const JSJoda = require("js-joda");
+const LocalDate = JSJoda.LocalDate;
+
+function getNumberOfDays(start, end) {
+  const start_date = new LocalDate.parse("2012-08-06");
+  const end_date = new LocalDate.parse(end);
+
+  return JSJoda.ChronoUnit.DAYS.between(start_date, end_date);
+}
+
+console.log( getNumberOfDays( "2021-02-01", "2021-03-01" ) );
+
+
 const override = css`
   display: block;
   margin: 0 auto;
@@ -49,7 +64,6 @@ function Curiosity() {
         `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${day}&camera=${camera}&api_key=${KEY}`
       )
       .then((response) => {
-        // console.log(response.data.photos);
         setMars(response.data.photos);
       })
       .catch((err) => {
@@ -102,7 +116,7 @@ function Curiosity() {
           <Slider {...settings}>
             {mars.map((photos) => {
               return (
-                <div className="card-wrapper">
+                <div className="card-wrapper" >
                   <div className="card">
                     <div className="card-image">
                       <a
