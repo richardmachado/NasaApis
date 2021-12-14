@@ -13,20 +13,10 @@ import "./rovers.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/core";
 
-// start date === 08/06/2012
+// start date ==="2012-08-06"
 
 const JSJoda = require("js-joda");
 const LocalDate = JSJoda.LocalDate;
-
-function getNumberOfDays(start, end) {
-  const start_date = new LocalDate.parse("2012-08-06");
-  const end_date = new LocalDate.parse(end);
-
-  return JSJoda.ChronoUnit.DAYS.between(start_date, end_date);
-}
-
-console.log( getNumberOfDays( "2021-02-01", "2021-03-01" ) );
-
 
 const override = css`
   display: block;
@@ -47,8 +37,19 @@ const KEY = process.env.REACT_APP_KEY;
 
 function Curiosity() {
   const [mars, setMars] = useState(0);
-  const [day, setDay] = useState(0);
   const [camera, setCamera] = useState("RHAZ");
+
+  const [day, setDay] = useState("2012-08-06");
+  console.log("day", day);
+
+  function getNumberOfDays( start, end ) {
+    console.log(day)
+    const end_date = new LocalDate.parse(`${day}`);
+    const start_date = new LocalDate.parse("2012-08-06");
+
+    return JSJoda.ChronoUnit.DAYS.between(start_date, end_date);
+  }
+  console.log("getnumberofdays", getNumberOfDays());
 
   const handleChange = (event) => {
     setDay(event.target.value);
@@ -61,10 +62,11 @@ function Curiosity() {
   useEffect(() => {
     axios
       .get(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${day}&camera=${camera}&api_key=${KEY}`
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${getNumberOfDays()}&camera=${camera}&api_key=${KEY}`
       )
       .then((response) => {
         setMars(response.data.photos);
+        console.log(response.data.photos);
       })
       .catch((err) => {
         console.log(err);
@@ -86,9 +88,8 @@ function Curiosity() {
           <label className="prompt" htmlFor="day">
             Enter a number - 0 is 1st day on Mars, etc <span> </span>
             <input
-              type="text"
+              type="date"
               onChange={(event) => handleChange(event)}
-              placeholder="day"
               name="day"
             ></input>
           </label>
@@ -116,7 +117,7 @@ function Curiosity() {
           <Slider {...settings}>
             {mars.map((photos) => {
               return (
-                <div className="card-wrapper" >
+                <div className="card-wrapper">
                   <div className="card">
                     <div className="card-image">
                       <a
